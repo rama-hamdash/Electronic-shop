@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('model_id')->constrained('models')->onDelete('cascade');
             $table->foreignId('color_id')->constrained('colors')->onDelete('cascade');
             $table->foreignId('size_id')->constrained('sizes')->onDelete('cascade');
-            $table->date('date');
+            // $table->date('date');
+            $table->softDeletes();
             $table->double('price');
             $table->text('image_url');
             $table->double('sel-price');
