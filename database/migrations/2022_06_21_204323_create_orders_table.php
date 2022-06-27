@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('total');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('status', ['easy', 'hard']);
+            $table->enum('status', ['complete', 'incomplete' ,'retreived']);
             $table->string('long');
             $table->string('lat');
             $table->string('address');

@@ -4,18 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table ="products";
     protected $fillable = [
         'date',
         'price',
         'image_url',
-        'sel-price',
-        'purshase-price',
+        'sel_price',
+        'purshase_price',
         'quantity',
         'sold',
         'retreived'

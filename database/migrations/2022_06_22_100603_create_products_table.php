@@ -20,10 +20,10 @@ return new class extends Migration
             $table->foreignId('size_id')->constrained('sizes')->onDelete('cascade');
             // $table->date('date');
             $table->softDeletes();
-            $table->double('price');
+            $table->decimal('price');
             $table->text('image_url');
-            $table->double('sel-price');
-            $table->double('purshase-price');
+            $table->decimal('sel_price');
+            $table->decimal('purshase_price');
             $table->integer('quantity');
             $table->integer('sold');
             $table->integer('retreived');
