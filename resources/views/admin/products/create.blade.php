@@ -64,20 +64,12 @@
                       <input class="form-control" name="image_url" type="file" id="formFile">
                   </div>
 
-                  <div class="input-group input-group-outline my-3">
-                    <label class="">الصنف </label>
-                    <select class="p-2" name="category_id">
-                      @foreach ($categories as $category)
-                      <option value="{{$category->id}}">{{$category->name}}</option>
-                          
-                      @endforeach
-                    </select>
-                  </div>
+               
 
 
                   <div class="input-group input-group-outline my-3">
                     <label class="">الموديل </label>
-                    <select class="p-2" name="category_id">
+                    <select class="p-2" name="model_id">
                       @foreach ($models as $model)
                       <option value="{{$model->id}}">{{$model->name}}</option>
                           
@@ -88,7 +80,7 @@
 
                   <div class="input-group input-group-outline my-3">
                     <label class="">الحجم </label>
-                    <select class="p-2" name="category_id">
+                    <select class="p-2" name="size_id">
                       @foreach ($sizes as $size)
                       <option value="{{$size->id}}">{{$size->name}}</option>
                           
@@ -99,7 +91,7 @@
 
                   <div class="input-group input-group-outline my-3">
                     <label class="">اللون </label>
-                    <select class="p-2" name="category_id">
+                    <select class="p-2" name="color_id">
                       @foreach ($colors as $color)
                       <option value="{{$color->id}}">{{$color->name}}</option>
                           

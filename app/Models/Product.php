@@ -29,6 +29,8 @@ class Product extends Model
         return $this->belongsTo(Color::class,'color_id');
     }
 
+   
+
     public function order(){
         return $this->belongsToMany(Order::class);
     }

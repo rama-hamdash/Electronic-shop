@@ -22,8 +22,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $Products= Product::paginate(10);
-        return view('admin.clothes.index',compact('clothes'));
+        $products= Product::paginate(10);
+        return view('admin.products.index',compact('products'));
     }
 
 
@@ -43,8 +43,14 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories =Category::all();
-        return view('admin.products.create',compact('categories'));
+        
+        $models =Modele::all();
+        $sizes =Size::all();
+        $colors =Color::all();
+
+        return view('admin.products.create',compact(['models','sizes','colors']));
+
+       
     }
 
     /**
@@ -61,7 +67,7 @@ class ProductController extends Controller
         
 
 
-        $image_url=$request->file('image')->store('public/clothe_images');
+        $image_url=$request->file('image_url')->store('public/clothe_images');
         $image_url=substr($image_url,strlen('public/'));
 
 
@@ -121,7 +127,7 @@ class ProductController extends Controller
         $image_url=$request->image_url;
 
         if($image_url){
-            $image_url=$request->file('image')->store('public/product_images');
+            $image_url=$request->file('image_url')->store('public/product_images');
             $image_url=substr($image_url,strlen('public/'));
          
         }
