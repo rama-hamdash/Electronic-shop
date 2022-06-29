@@ -22,17 +22,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products= Product::paginate(10);
-        return view('admin.products.index',compact('products'));
+        $products = Product::paginate(10);
+        return view('admin.products.index', compact('products'));
     }
 
 
     public function product_category($category_id)
     {
-       
-        
-      $category= Category::findorfail($category_id);
-       $Products=$category->products;
+
+
+        $category = Category::findorfail($category_id);
+        $Products = $category->products;
         return $Products;
     }
 
@@ -43,14 +43,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        
-        $models =Modele::all();
-        $sizes =Size::all();
-        $colors =Color::all();
 
-        return view('admin.products.create',compact(['models','sizes','colors']));
+        $models = Modele::all();
+        $sizes = Size::all();
+        $colors = Color::all();
 
-       
+        return view('admin.products.create', compact(['models', 'sizes', 'colors']));
     }
 
     /**
@@ -59,32 +57,32 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( ProductRequest $request)
+    public function store(ProductRequest $request)
     {
-        $model= Modele::findOrfail($request->model_id);
-        $size= Size::findOrfail($request->size_id);
+        $model = Modele::findOrfail($request->model_id);
+        $size = Size::findOrfail($request->size_id);
         $color = Color::findOrfail($request->color_id);
-        
 
 
-        $image_url=$request->file('image_url')->store('public/clothe_images');
-        $image_url=substr($image_url,strlen('public/'));
+
+        $image_url = $request->file('image_url')->store('public/clothe_images');
+        $image_url = substr($image_url, strlen('public/'));
 
 
-        $product=new Product();
-        $product->quantity=$request->quantity;
-        $product->sold=$request->sold;
-        $product->retreived=$request->retreived;
-        $product->sel_price=$request->sel_price;
-        $product->purshase_price=$request->purshase_price;
-        $product->model_id=$request->model_id;
-        $product->size_id=$request->size_id;
-        $product->color_id=$request->color_id;
-        $product->image_url=$image_url;
-        $product->price=$request->price;
+        $product = new Product();
+        $product->quantity = $request->quantity;
+        $product->sold = $request->sold;
+        $product->retreived = $request->retreived;
+        $product->sel_price = $request->sel_price;
+        $product->purshase_price = $request->purshase_price;
+        $product->model_id = $request->model_id;
+        $product->size_id = $request->size_id;
+        $product->color_id = $request->color_id;
+        $product->image_url = $image_url;
+        $product->price = $request->price;
         $product->save();
 
-        return redirect()->back()->with('success','تمت الإضافة بنجاح');
+        return redirect()->back()->with('success', 'تمت الإضافة بنجاح');
     }
 
     /**
@@ -95,8 +93,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $Products = Product::with('Category')->where('id',$id)->firstorfail();
-        return view('admin.products.show',compact('product'));
+        $Products = Product::with('Category')->where('id', $id)->firstorfail();
+        return view('admin.products.show', compact('product'));
     }
 
     /**
@@ -107,10 +105,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        
-        $Products= Product::findOrfail($id);
-        $categories=Category::all();
-        return view('admin.products.edit',compact('categories','product'));
+
+        $Products = Product::findOrfail($id);
+        $categories = Category::all();
+        return view('admin.products.edit', compact('categories', 'product'));
     }
 
     /**
@@ -124,31 +122,29 @@ class ProductController extends Controller
     {
         $product = Product::findOrfail($id);
 
-        $image_url=$request->image_url;
+        $image_url = $request->image_url;
 
-        if($image_url){
-            $image_url=$request->file('image_url')->store('public/product_images');
-            $image_url=substr($image_url,strlen('public/'));
-         
+        if ($image_url) {
+            $image_url = $request->file('image_url')->store('public/product_images');
+            $image_url = substr($image_url, strlen('public/'));
+        } else {
+            $image_url = $product->image_url;
         }
-        else{
-            $image_url=$product->image_url;
-        }
-      
-        $product->quantity=$request->quantity;
-        $product->sold=$request->sold;
-        $product->retreived=$request->retreived;
-        $product->sel_price=$request->sel_price;
-        $product->purshase_price=$request->purshase_price;
-        $product->model_id=$request->model_id;
-        $product->size_id=$request->size_id;
-        $product->color_id=$request->color_id;
-        $product->image_url=$image_url;
-        $product->price=$request->price;
+
+        $product->quantity = $request->quantity;
+        $product->sold = $request->sold;
+        $product->retreived = $request->retreived;
+        $product->sel_price = $request->sel_price;
+        $product->purshase_price = $request->purshase_price;
+        $product->model_id = $request->model_id;
+        $product->size_id = $request->size_id;
+        $product->color_id = $request->color_id;
+        $product->image_url = $image_url;
+        $product->price = $request->price;
         $product->save();
 
-      
-        return redirect()->back()->with('success','تم تحديث بنجاح');
+
+        return redirect()->back()->with('success', 'تم تحديث بنجاح');
     }
 
     /**
@@ -159,9 +155,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product= Product::findorfail($id);
-        Storage::delete('public/'.$product->image);
+        $product = Product::findorfail($id);
+        Storage::delete('public/' . $product->image);
         $product->delete();
-        return redirect()->route('admin.products.index')->with('success','تم الحذف بنجاح');
+        return redirect()->route('admin.products.index')->with('success', 'تم الحذف بنجاح');
     }
 }
