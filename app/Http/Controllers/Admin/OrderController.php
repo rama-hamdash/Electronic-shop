@@ -49,9 +49,7 @@ class OrderController extends Controller
 
         $order->num=uniqid();
         $order->address=$request->address;
-        $order->note=$request->note;
-        $order->coupon_code=$request->coupon_code;
-        $order->cost=Cart::getTotal();
+        $order->total=Cart::getTotal();
         $order->user_id= $user->id;
         $order->status=1;
         $order->long=0;
@@ -104,9 +102,7 @@ class OrderController extends Controller
         $order = Order::findOrfail($id);
 
         $order->address = $request->address;
-        $order->note = $request->note;
-        $order->coupon_code = $request->coupon_code;
-        $order->cost = Cart::getTotal();
+        $order->total = Cart::getTotal();
         $order->status = 1;
 
         $order->save();
@@ -144,13 +140,13 @@ class OrderController extends Controller
 
         Cart::clear();
 
-        foreach($order->clothes as $clothe){
+        foreach($order->products as $product){
 
             Cart::add([
-                'id' => $clothe->id,
-                'name' => $clothe->name,
-                'price' => $clothe->price,
-                'quantity' => $clothe->quantity,
+                'id' => $product->id,
+              //  'name' => $product->name,
+                'price' => $product->price,
+                'quantity' => $product->quantity,
             ]);
         }
 

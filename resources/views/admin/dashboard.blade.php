@@ -76,7 +76,7 @@
               </div>
               <div class="text-start pt-1">
                 <p class="text-sm mb-0 text-capitalize">عدد الطلبات</p>
-                <h4 class="mb-0"></h4>
+                <h4 class="mb-0">  {{ $orders_count }}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -92,7 +92,7 @@
               </div>
               <div class="text-start pt-1">
                 <p class="text-sm mb-0 text-capitalize">عدد المستخدمين</p>
-                <h4 class="mb-0"></h4>
+                <h4 class="mb-0">   {{ $users_count }}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -108,7 +108,7 @@
               </div>
               <div class="text-start pt-1">
                 <p class="text-sm mb-0 text-capitalize">عدد الأصناف</p>
-                <h4 class="mb-0"> </h4>
+                <h4 class="mb-0">   {{ $categories_count }}</h4>
             </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -124,7 +124,7 @@
               </div>
               <div class="text-start pt-1">
                 <p class="text-sm mb-0 text-capitalize">  عدد المنتجات</p>
-                <h4 class="mb-0"></h4>
+                <h4 class="mb-0">  {{ $products_count }} </h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">

@@ -108,7 +108,7 @@
                           <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                         
                               <div class="input-group input-group-outline my-3"> 
-                               الإجمالي:  {{  $order->cost   }}
+                               الإجمالي:  {{  $order->total   }}
                                     </div>
                           </div>
                         </div>

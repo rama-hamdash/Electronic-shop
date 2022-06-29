@@ -100,13 +100,13 @@
                   <td>{{ $order->cost  }}</td>
                   @switch ($order->status)
                   @case(1)
-                  <td>تم قبول الطلب</td>
+                  <td>  complete</td>
                   @break
                   @case(2)
-                  <td>تم تسليم الطلب للسائق</td>
+                  <td>  incomplete</td>
                   @break
                   @case(3)
-                  <td>تم تسليم الطلب للزبون</td>
+                  <td> retreived</td>
                   @break
 
                   @endswitch

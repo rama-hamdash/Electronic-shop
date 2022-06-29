@@ -98,22 +98,22 @@
                     <select class="p-2 " name="status">
                         @switch($order->status)
                         @case(1)
-                        <option disabled selected>تم قبوله</option>       
+                        <option disabled selected> complete</option>       
                           @break
                           @case(2)
-                          <option disabled selected>تم تسليمه للسائق</option>      
+                          <option disabled selected> incomplete</option>      
                             @break
   
                             @case(3)
-                            <option disabled selected> تم تسليمه للزبون </option>       
+                            <option disabled selected> retreived </option>       
                               @break
                        
                           
                       @endswitch
                              
-                           <option value="1"> مقبول</option>
-                           <option value="2">تم تسليمه للسائق</option>
-                           <option value="3">تم تسليمه للزبون</option>
+                           <option value="1">  complete</option>
+                           <option value="2">  incomplete</option>
+                           <option value="3">  retreived </option>
                   
                     </select>   
 

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,11 +19,11 @@ class DashboardController extends Controller
     public function index()
     {
 
-      //  $users_count=User::count();
-      //  $categories_count=Category::count();
-       // $clothes_count=Clothe::count();
-       // $orders_count=Order::count();
-        return view('admin.dashboard');
+        $users_count= User::count();
+        $categories_count= Category::count();
+        $products_count= Product::count();
+        $orders_count= Order::count();
+        return view('admin.dashboard', compact('users_count','categories_count' , 'products_count' ,'orders_count'));
     }
 
     /**
