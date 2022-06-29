@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/test', function(){
  //   return 'hhhhhhhhhhhhh  user';
 //    });
+
+Route::get('user',[UserController::class,'index'])->name('users');
