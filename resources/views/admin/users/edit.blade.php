@@ -116,12 +116,6 @@
                               زبون
                             </label>
                           </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="gridRadios2" value="delivery">
-                            <label class="form-check-label" for="gridRadios2">
-                              موظف توصيل
-                            </label>
-                          </div>
 
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="role" id="gridRadios1" value="admin" checked>
