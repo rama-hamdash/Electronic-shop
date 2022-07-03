@@ -1,42 +1,97 @@
-
 @extends('layouts.user')
 @section('content')
-
-
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="banner">
+<!-- Page Content -->
+    <!-- Single Starts Here -->
+    <div class="single-product">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="caption">
-                <h2>Ecommerce HTML Template</h2>
+              <div class="section-heading">
                 <div class="line-dec"></div>
-                <p>Pixie HTML Template can be converted into your desired CMS theme. Total <strong>5 pages</strong> included. You can use this Bootstrap v4.1.3 layout for any CMS. 
-                <br><br>Please tell your friends about <a rel="nofollow" href="https://www.facebook.com/tooplate/">Tooplate</a> free template site. Thank you. Photo credit goes to <a rel="nofollow" href="https://www.pexels.com">Pexels website</a>.</p>
-                <div class="main-button">
-                  <a href="{{asset('assets/#')}}">Order Now!</a>
+                <h1>Single Product</h1>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="product-slider">
+                <div id="slider" class="flexslider">
+                  <ul class="slides">
+                    <li>
+                      <img src="{{asset('assets/images/big-01.jpg')}}" />
+                    </li>
+                    <li>
+                      <img src="{{asset('assets/images/big-02.jpg')}}" />
+                    </li>
+                    <li>
+                      <img src="{{asset('assets/images/big-03.jpg')}}" />
+                    </li>
+                    <li>
+                      <img src="{{asset('assets/images/big-04.jpg')}}" />
+                    </li>
+                    <!-- items mirrored twice, total of 12 -->
+                  </ul>
+                </div>
+                <div id="carousel" class="flexslider">
+                  <ul class="slides">
+                    <li>
+                      <img src="{{asset('assets/images/thumb-01.jpg')}}" />
+                    </li>
+                    <li>
+                      <img src="{{asset('assets/images/thumb-02.jpg')}}" />
+                    </li>
+                    <li>
+                      <img src="{{asset('assets/images/thumb-03.jpg')}}" />
+                    </li>
+                    <li>
+                      <img src="{{asset('assets/images/thumb-04.jpg')}}" />
+                    </li>
+                    <!-- items mirrored twice, total of 12 -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="right-content">
+                <h4>Single Product Name</h4>
+                <h6>$55.00</h6>
+                <p>Proin commodo, diam a ultricies sagittis, erat odio rhoncus metus, eu feugiat lorem lacus aliquet arcu. Curabitur in gravida nisi, non placerat nibh. Praesent sit amet diam ultrices, commodo turpis id, dignissim leo. Suspendisse mauris massa, porttitor non fermentum vel, ullamcorper scelerisque velit. </p>
+                <span>7 left on stock</span>
+                <form action="" method="get">
+                  <label for="quantity">Quantity:</label>
+                  <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
+                      onfocus="if(this.value == '1') { this.value = ''; }" 
+                      onBlur="if(this.value == '') { this.value = '1';}"
+                      value="1">
+                  <input type="submit" class="button" value="Order Now!">
+                </form>
+                <div class="down-content">
+                  <div class="categories">
+                    <h6>Category: <span><a href="{{asset('assets/#')}}">Pants</a>,<a href="{{asset('assets/#')}}">Women</a>,<a href="{{asset('assets/#')}}">Lifestyle</a></span></h6>
+                  </div>
+                  <div class="share">
+                    <h6>Share: <span><a href="{{asset('assets/#')}}"><i class="fa fa-facebook"></i></a><a href="{{asset('assets/#')}}"><i class="fa fa-linkedin"></i></a><a href="{{asset('assets/#')}}"><i class="fa fa-twitter"></i></a></span></h6>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Banner Ends Here -->
+      <!-- Single Page Ends Here -->
   
-      <!-- Featured Starts Here -->
+  
+      <!-- Similar Starts Here -->
       <div class="featured-items">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="section-heading">
                 <div class="line-dec"></div>
-                <h1>Featured Items</h1>
+                <h1>You May Also Like</h1>
               </div>
             </div>
             <div class="col-md-12">
               <div class="owl-carousel owl-theme">
-                <a href= "{{asset('assets/single-product.html')}}">
+                <a href="{{asset('assets/single-product.html')}}">
                   <div class="featured-item">
                     <img src="{{asset('assets/images/item-01.jpg')}}" alt="Item 1">
                     <h4>Proin vel ligula</h4>
@@ -104,7 +159,7 @@
           </div>
         </div>
       </div>
-      <!-- Featred Ends Here -->
+      <!-- Similar Ends Here -->
   
   
       <!-- Subscribe Form Starts Here -->
@@ -119,7 +174,7 @@
             </div>
             <div class="col-md-8 offset-md-2">
               <div class="main-content">
-                <p>Integer vel turpis ultricies, lacinia ligula id, lobortis augue. Vivamus porttitor dui id dictum efficitur. Phasellus vel interdum elit.</p>
+                <p>Godard four dollar toast prism, authentic heirloom raw denim messenger bag gochujang put a bird on it celiac readymade vice.</p>
                 <div class="container">
                   <form id="subscribe" action="" method="get">
                     <div class="row">
@@ -145,5 +200,6 @@
         </div>
       </div>
       <!-- Subscribe Form Ends Here -->
+  
 
-      @endsection
+@endsection

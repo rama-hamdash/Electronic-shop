@@ -30,38 +30,7 @@
             <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-globe-asia"></i>
             </a>
-            <ul class="dropdown-menu  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-            
-              <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                   
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">English</span> 
-                        </h6>
-                      
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                   
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">Arabic</span> 
-                        </h6>
-                      
-                      </div>
-                    </div>
-                  </a>
-                </li>
-            </ul>
-          </li>
-        </ul>
+           
       </div>
     </div>
   </nav>

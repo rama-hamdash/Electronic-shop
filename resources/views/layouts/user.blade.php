@@ -12,13 +12,13 @@
     <title>Pixie - Ecommerce HTML5 Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{assets('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{assets('assets/css/fontawesome.css')}}">
-    <link rel="stylesheet" href="{{assets('assets/css/tooplate-main.css')}}">
-    <link rel="stylesheet" href="{{assets('assets/css/owl.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/tooplate-main.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
 <!--
 Tooplate 2114 Pixie
 https://www.tooplate.com/view/2114-pixie
@@ -41,25 +41,25 @@ https://www.tooplate.com/view/2114-pixie
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
-        <a class="navbar-brand" href="#"><img src="{{assets('assets/images/header-logo.png')}}" alt=""></a>
+        <a class="navbar-brand" href="{{asset('assets/#')}}"><img src="{{asset('assets/images/header-logo.png')}}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home
+              <a class="nav-link" href="{{asset('assets/index.html')}}">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{assets('assets/products.html')}}">Products</a>
+              <a class="nav-link" href="{{asset('assets/products.html')}}">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{assets('assets/about.html')}}">About Us</a>
+              <a class="nav-link" href="{{asset('assets/about.html')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{assets('assets/contact.html')}}">Contact Us</a>
+              <a class="nav-link" href="{{asset('assets/contact.html')}}">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -75,27 +75,27 @@ https://www.tooplate.com/view/2114-pixie
           <div class="row">
             <div class="col-md-12">
               <div class="logo">
-                <img src="{{assets('assets/images/header-logo.png')}}" alt="">
+                <img src="{{asset('assets/images/header-logo.png')}}" alt="">
               </div>
             </div>
             <div class="col-md-12">
               <div class="footer-menu">
                 <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Help</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">How It Works ?</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="{{asset('assets/#')}}">Home</a></li>
+                  <li><a href="{{asset('assets/#')}}">Help</a></li>
+                  <li><a href="{{asset('assets/#')}}">Privacy Policy</a></li>
+                  <li><a href="{{asset('assets/#')}}">How It Works ?</a></li>
+                  <li><a href="{{asset('assets/#')}}">Contact Us</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-md-12">
               <div class="social-icons">
                 <ul>
-                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                  <li><a href="{{asset('assets/#')}}"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="{{asset('assets/#')}}"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="{{asset('assets/#')}}"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="{{asset('assets/#')}}"><i class="fa fa-rss"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -123,16 +123,16 @@ https://www.tooplate.com/view/2114-pixie
   
   
       <!-- Bootstrap core JavaScript -->
-      <script src="{{assets('assets/vendor/jquery/jquery.min.js')}}"></script>
-      <script src="{{assets('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+      <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+      <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   
   
       <!-- Additional Scripts -->
-      <script src="{{assets('assets/js/custom.js')}}"></script>
-      <script src="{{assets('assets/js/owl.js')}}"></script>
+      <script src="{{asset('assets/js/custom.js')}}"></script>
+      <script src="{{asset('assets/js/owl.js')}}"></script>
   
   
-      <script language = "text/Javascript"> 
+      <script language = "{{asset('assets/text/Javascript')}}"> 
         cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
         function clearField(t){                   //declaring the array outside of the
         if(! cleared[t.id]){                      // function makes it static and global

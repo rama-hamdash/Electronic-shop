@@ -76,15 +76,6 @@ Route::resource('models', ModelController::class)->names([
 
 ]);
 
-
-    //  cart routes
-    Route::get('cart/get_content',[CartController::class,'list_cart'])->name('admin.cart.get_content');
-    Route::get('cart/add_item',[CartController::class,'add_to_cart'])->name('admin.cart.add_to_cart');
-    Route::get('cart/update_item',[CartController::class,'updateCart'])->name('admin.cart.update_cart');
-    Route::get('cart/delete_item/{item_id}',[CartController::class,'removecart'])->name('admin.cart.delete_item');
-    Route::get('cart/clear_cart',[CartController::class,'clearAllCart'])->name('admin.cart.clear_cart');
-
-
     //orders routes
 Route::get('orders/edit_status/{order_id}',[OrderController::class,'edit_status'])->name('admin.orders.edit_status');
 Route::get('orders/assign_delivery_boy/{order_id}',[DeliveryController::class,'assign_delivery_boy_form'])->name('admin.orders.assign_delivery_boy_form');

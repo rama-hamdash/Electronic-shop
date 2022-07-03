@@ -215,4 +215,6 @@ return [
 
     'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
 
+    
+
 ];
