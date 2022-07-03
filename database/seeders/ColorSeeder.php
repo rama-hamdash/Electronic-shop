@@ -17,7 +17,7 @@ class ColorSeeder extends Seeder
     public function run()
     {   
         Color::factory()
-        ->count(2)
+        ->count(11)
         ->state(new Sequence(
             ['name' => 'black'],
             ['name' => 'white'],
@@ -29,7 +29,7 @@ class ColorSeeder extends Seeder
             ['name' => 'pink'],
             ['name' => 'brown'],
             ['name' => 'purple'],
-            ['name' => ''],
+            ['name' => 'grey'],
         ))
         ->create();
 

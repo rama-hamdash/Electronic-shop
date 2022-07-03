@@ -18,11 +18,15 @@ class SizeSeeder extends Seeder
     public function run()
     {
         Size::factory()
-        ->count(3)
+        ->count(7)
         ->state(new Sequence(
+            ['name' => 'xs'],
             ['name' => 's'],
-            ['name' => 'md'],
+            ['name' => 'm'],
             ['name' => 'l'],
+            ['name' => 'xl'],
+            ['name' => 'xxl'],
+            ['name' => 'xxxl'],
             ))
         ->create();
 
