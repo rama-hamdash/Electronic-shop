@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserUpdateRequest extends FormRequest
@@ -25,9 +25,9 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name'=> ['required'],
-            'last_name' =>['required'],
-           //'role'=>['required',Rule::in(['admin','customer']),]
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'role' => ['required', Rule::in(['admin', 'customer']),]
         ];
     }
 }

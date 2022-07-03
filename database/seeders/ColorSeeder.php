@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Color;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class ColorSeeder extends Seeder
@@ -15,19 +16,22 @@ class ColorSeeder extends Seeder
      */
     public function run()
     {   
-        $color = new Color;
-        $color->name ="Red" ;
-        $color->name ="Blue" ;
-        $color->name ="Green" ;
-        $color->name ="Yellow" ;
-        $color->name ="Orange" ;
-        $color->name ="Pink" ;
-        $color->name ="Brown" ;
-        $color->name ="Black" ;
-        $color->name ="White" ;
-        $color->name ="Purple" ;
-        $color->name ="Grey" ;
-        $color->save();
+        Color::factory()
+        ->count(2)
+        ->state(new Sequence(
+            ['name' => 'black'],
+            ['name' => 'white'],
+            ['name' => 'red'],
+            ['name' => 'blue'],
+            ['name' => 'green'],
+            ['name' => 'yellow'],
+            ['name' => 'orange'],
+            ['name' => 'pink'],
+            ['name' => 'brown'],
+            ['name' => 'purple'],
+            ['name' => ''],
+        ))
+        ->create();
 
 
     }

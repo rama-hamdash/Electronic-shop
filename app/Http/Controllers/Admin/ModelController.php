@@ -54,6 +54,7 @@ class ModelController extends Controller
 
         $model=new Modele();
         $model->description=$request->description;
+        $model->name=$request->name;
         $model->category_id=$request->category_id;
         $model->model_num=$request->model_num;
         $model->active=1;
@@ -100,6 +101,7 @@ class ModelController extends Controller
 
         $model=new Modele();
         $model->description=$request->description;
+        $model->name=$request->name;
         $model->category_id=$request->category_id;
         $model->model_num=$request->model_num;
         $model->active=1;

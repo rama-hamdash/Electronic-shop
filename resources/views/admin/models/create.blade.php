@@ -35,6 +35,12 @@
                       <textarea name="description"  rows="5" class="form-control">
                       </textarea>
                     </div>
+
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">الاسم</label>
+                      <textarea name="name"  rows="5" class="form-control">
+                      </textarea>
+                    </div>
                
                     <div class="input-group input-group-outline my-3">
                       <label class="form-label">رقم الموديل</label>

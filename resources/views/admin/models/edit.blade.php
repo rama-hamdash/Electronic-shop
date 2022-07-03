@@ -99,7 +99,15 @@
                   <div class="input-group input-group-outline my-3">
                       <label class="form-label">الوصف</label>
                       <textarea   rows="5" name="description" class="form-control">
-                        {{ $clothe->description }}
+                        {{ $model->description }}
+                      </textarea>
+                    </div>
+
+
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">الاسم</label>
+                      <textarea   rows="5" name="name" class="form-control">
+                        {{ $model->name }}
                       </textarea>
                     </div>
                

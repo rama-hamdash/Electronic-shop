@@ -85,6 +85,19 @@
                             {{$model->model_num}}
                           </div>
                       </div>
+
+                      <hr>
+
+                      <div class="row">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">الاسم </h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                            {{$model->name}}
+                          </div>
+                      </div>
+
+
                       <hr>
 
                       <div class="row">
@@ -106,7 +119,7 @@
                           <div class="col-sm-9 text-secondary">
                              <form method="GET" action="{{ route('admin.cart.add_to_cart') }}">
                                <input type="number" name="quantity">
-                               <input type="hidden" name="clothe_id" value="{{ $model->id }}">
+                               <input type="hidden" name="model_id" value="{{ $model->id }}">
                                <button class="btn btn-success btn-sm p-3" type="submit">أضف للسلة</button>
                              </form>
                           </div>

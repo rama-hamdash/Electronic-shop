@@ -33,7 +33,7 @@ class ProductRequest extends FormRequest
         'size_id'=>['required' ,'numeric'],
         'color_id'=>['required' ,'numeric'],
         'price'=>['required','numeric','integer'],
-        'category_id'=>['required','numeric'],
+        // 'category_id'=>['required','numeric'],
         'image_url'=>['required','image'],
         ];
     }

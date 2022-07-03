@@ -97,6 +97,8 @@
             <table class="table ">
                 <tr>
                   <th scope="col">الرقم</th>
+                  <th scope="col">الاسم</th>
+                
                   <th scope="col">رقم الموديل</th>
                    <th scope="col">عرض</th>
                   <th scope="col">تعديل</th>
@@ -106,6 +108,7 @@
              <tr>
               <th scope="row">{{$model->id}}</th>
               <td>{{$model->model_num}}</td>
+              <td>{{$model->name}}</td>
                <td><a class="text-info" href="{{route('admin.models.show',[$model->id])}}"><i class="fas fa-eye"></i></a></td>
               <td > <a class="text-warning" href="{{route('admin.models.edit',[$model->id])}}"><i class="fas fa-edit"></i></a></td>
          

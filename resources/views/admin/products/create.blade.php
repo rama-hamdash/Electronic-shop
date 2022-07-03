@@ -71,12 +71,11 @@
                     <label class="">الموديل </label>
                     <select class="p-2" name="model_id">
                       @foreach ($models as $model)
-                      <option value="{{$model->id}}">{{$model->name}}</option>
+                      <option value="{{$model->id}}">{{$model->model_num}}</option>
                           
                       @endforeach
                     </select>
                   </div>
-
 
                   <div class="input-group input-group-outline my-3">
                     <label class="">الحجم </label>

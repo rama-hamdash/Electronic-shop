@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OrderStatusRequest extends FormRequest
@@ -25,7 +25,7 @@ class OrderStatusRequest extends FormRequest
     public function rules()
     {
         return [
-           // 'status' =>['required',Rule::in([1,2,3])],
+            'status' =>['required',Rule::in([1,2,3])],
             'order_id' =>['required','integer'],
         ];
     }

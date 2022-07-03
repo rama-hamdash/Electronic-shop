@@ -11,6 +11,7 @@ class Modele extends Model
     protected $table ="models";
     protected $fillable = [
         'description',
+        'name' ,
         'model_num',
         'active'
     ];
