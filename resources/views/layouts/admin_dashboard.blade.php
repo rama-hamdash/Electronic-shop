@@ -125,7 +125,7 @@
     </div>
   </main>
   <div class="fixed-plugin">
-    <a  href="{{route('admin.cart.get_content')}}"   class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+    <a  href="{{route('user.cart.get_content')}}"   class="fixed-plugin-button text-dark position-fixed px-3 py-2">
         
         <i class="fas fa-shopping-cart py-2"></i>
         

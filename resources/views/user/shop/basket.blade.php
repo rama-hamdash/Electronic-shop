@@ -1,4 +1,4 @@
-@extends('layouts.admin_dashboard')
+@extends('layouts.user')
 @section('content')
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg overflow-x-hidden">
   <!-- Navbar -->
@@ -86,7 +86,7 @@
                     
       
                       <div>
-                        <h4><a href="{{route('admin.cart.clear_cart')}}" class="btn btn-light text-danger"><i class="fas fa-trash-alt"></i></a></h4>
+                        <h4><a href="{{route('user.cart.clear_cart')}}" class="btn btn-light text-danger"><i class="fas fa-trash-alt"></i></a></h4>
                        </div>
               
               
@@ -102,7 +102,7 @@
                             
             
                               <div class="input-group input-group-outline my-3"> 
-                                <form method="GET" action="{{route('admin.cart.update_cart')}}">
+                                <form method="GET" action="{{route('user.cart.update_cart')}}">
 
                                   <input id="form1" min="0" name="quantity" value="{{$item->quantity}}" type="number"
                                     class="form-control form-control-sm" />
@@ -117,7 +117,7 @@
                           </div>
                         </form>
                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                            <a href="{{route('admin.cart.delete_item',[$item->id])}}" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                            <a href="{{route('user.cart.delete_item',[$item->id])}}" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                           </div>
                         </div>
                       </div>
@@ -129,7 +129,7 @@
                       <div class="card-body">
                         
                        
-                            <a href="{{route('admin.products.index')}}" class="btn btn-dark text-white btn-block btn-md">قائمة المنتجات</a>
+                            <a href="{{route('product.interface')}}" class="btn btn-dark text-white btn-block btn-md">قائمة المنتجات</a>
                          
                
                       </div>

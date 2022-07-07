@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\user\CartController;
 use App\Http\Controllers\user\InterfaceController;
 use Darryldecode\Cart\CartCollection;
 use Illuminate\Support\Facades\Route;
@@ -26,11 +27,11 @@ Route::get('aboute',[InterfaceController::class,'aboute'])->name('aboute');
 
 
 //  cart routes
-Route::get('cart/get_content',[CartCollection::class,'list_cart'])->name('admin.cart.get_content');
-Route::get('cart/add_item',[CartController::class,'add_to_cart'])->name('admin.cart.add_to_cart');
-Route::get('cart/update_item',[CartController::class,'updateCart'])->name('admin.cart.update_cart');
-Route::get('cart/delete_item/{item_id}',[CartController::class,'removecart'])->name('admin.cart.delete_item');
-Route::get('cart/clear_cart',[CartController::class,'clearAllCart'])->name('admin.cart.clear_cart');
+Route::get('cart/get_content',[CartController::class,'list_cart'])->name('user.cart.get_content');
+Route::get('cart/add_item',[CartController::class,'add_to_cart'])->name('user.cart.add_to_cart');
+Route::get('cart/update_item',[CartController::class,'updateCart'])->name('user.cart.update_cart');
+Route::get('cart/delete_item/{item_id}',[CartController::class,'removecart'])->name('user.cart.delete_item');
+Route::get('cart/clear_cart',[CartController::class,'clearAllCart'])->name('user.cart.clear_cart');
 
 Route::get('test', function () {
         
