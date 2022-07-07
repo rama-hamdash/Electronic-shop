@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class InterfaceController extends Controller
@@ -14,11 +15,14 @@ class InterfaceController extends Controller
      */
     public function index()
     {
-        return  view('user.index');
+       $products= Product::all();  
+        return  view('user.index',compact('products'));
     }
 
     public function product(){
-        return view('user.product');
+
+        $products= Product::all(); 
+        return view('user.product',compact('products'));
     }
 
     public function contact(){

@@ -80,18 +80,17 @@ https://www.tooplate.com/view/2114-pixie
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ asset('assets/index.html') }}">Home
-                            <span class="sr-only">(current)</span>
+                        <a class="nav-link" href="{{ route('users.interface') }}">Home<span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ asset('assets/products.html') }}">Products</a>
+                        <a class="nav-link" href="{{ route('product.interface') }}">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ asset('assets/about.html') }}">About Us</a>
+                        <a class="nav-link" href="{{ route('aboute') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ asset('assets/contact.html') }}">Contact Us</a>
+                        <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                     </li>
                 </ul>
             </div>
