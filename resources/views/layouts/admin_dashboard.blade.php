@@ -32,7 +32,7 @@
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse px-0 w-auto  max-height-vh-100" id="sidenav-collapse-main">
+    <div class=" px-0 w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link " href="{{route('admin.dashboard')}}">
@@ -124,14 +124,14 @@
       </footer>
     </div>
   </main>
-  <div class="fixed-plugin">
+  {{-- <div class="fixed-plugin">
     <a  href="{{route('user.cart.get_content')}}"   class="fixed-plugin-button text-dark position-fixed px-3 py-2">
         
         <i class="fas fa-shopping-cart py-2"></i>
         
     </a>
     
-  </div>
+  </div> --}}
   <!--   Core JS Files   -->
   <script src="{{asset('dashboard_assets/js/core/popper.min.js')}}"></script>
   <script src="{{asset('dashboard_assets/js/core/bootstrap.min.js')}}"></script>
