@@ -10,28 +10,28 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
                         <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">لوحة
                                 التحكم </a></li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">الرئيسية</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">المستخدمين</li>
                     </ol>
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
 
-                   
+
                 </div>
             </div>
         </nav>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <div class="row justify-content-center">
-            
+
                 @if (session('success'))
-                <div class="alert alert-success text-white" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif 
-            
-                <div class="col-2 mb-5">
-                    <a href="{{route('admin.users.create')}}" class="btn btn-primary">إضافة</a>
+                    <div class="alert alert-success text-white" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <div class=" mb-5">
+                    <a href="{{ route('admin.users.create') }}" class="btn btn-primary">إضافة</a>
                 </div>
 
                 <div class="col-12">
@@ -57,18 +57,20 @@
                                     <th scope="col">الصلاحية</th>
                                     <th scope="col">عرض</th>
                                     <th scope="col">تعديل</th>
-                                 </tr>
+                                </tr>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <th scope="row">{{$user->id}}</th>
-                                        <td>{{$user->first_name}}</td>
-                                        <td>{{$user->last_name}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>{{$user->mobile}}</td>
-                                        <td>{{$user->role}}</td>
-                                        <td class="text-info"><a href="{{route('admin.users.show',[$user->id])}}"><i class="fas fa-eye"></i></a></td>
-                                        <td class="text-warning"><a href="{{route('admin.users.edit',[$user->id])}}"><i class="fas fa-edit"></i></a></td>
-                              
+                                        <th scope="row">{{ $user->id }}</th>
+                                        <td>{{ $user->first_name }}</td>
+                                        <td>{{ $user->last_name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->mobile }}</td>
+                                        <td>{{ $user->role }}</td>
+                                        <td class="text-info"><a href="{{ route('admin.users.show', [$user->id]) }}"><i
+                                                    class="fas fa-eye"></i></a></td>
+                                        <td class="text-warning"><a href="{{ route('admin.users.edit', [$user->id]) }}"><i
+                                                    class="fas fa-edit"></i></a></td>
+
                                     </tr>
                                 @endforeach
 
@@ -77,5 +79,4 @@
                     </div>
                 </div>
             </div>
-
         @endsection

@@ -12,7 +12,6 @@
                         <div class="alert alert-danger text-white" role="alert">
                             {{ $error }}
                         </div>
-
                     @endforeach
                 @endif
 
@@ -45,11 +44,11 @@
                         </div>
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">كلمة المرور</label>
-                            <input type="text" name="password" class="form-control">
+                            <input type="password" name="password" class="form-control">
                         </div>
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">الموبايل</label>
-                            <input type="text" name="mobile" class="form-control">
+                            <input type="tel" name="mobile" class="form-control">
                         </div>
                         <fieldset class="form-group">
                             <div class="row">
@@ -62,12 +61,12 @@
                                             زبون
                                         </label>
                                     </div>
-                                    
+
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="role" id="gridRadios1"
                                             value="admin" checked>
                                         <label class="form-check-label" for="gridRadios1">
-                                            مسؤول مطعم
+                                            مسؤول متجر
                                         </label>
                                     </div>
                                 </div>

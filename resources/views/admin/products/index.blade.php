@@ -9,7 +9,7 @@
               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
                   <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">لوحة
                           التحكم </a></li>
-                  <li class="breadcrumb-item text-sm text-dark active" aria-current="page">الرئيسية</li>
+                  <li class="breadcrumb-item text-sm text-dark active" aria-current="page">المخزن</li>
               </ol>
 
           </nav>
@@ -29,7 +29,7 @@
       </div>
   @endif 
       
-      <div class="col-2 mb-5">
+      <div class="mb-5">
         <a href="{{route('admin.products.create')}}" class="btn btn-primary">إضافة</a>
     </div>
 

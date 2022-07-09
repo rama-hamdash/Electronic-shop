@@ -39,7 +39,7 @@
         <div class=" px-0 w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.dashboard') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.dashboard') ? 'text-white active bg-gradient-primary' : '' }}" href="{{ route('admin.dashboard') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-home "></i>
                         </div>
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.users.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.users.index') ? 'text-white active bg-gradient-primary' : '' }}" href="{{ route('admin.users.index') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-users"></i>
                         </div>
@@ -55,36 +55,36 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.categories.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.categories.index') ? 'text-white active bg-gradient-primary' : '' }}" href="{{ route('admin.categories.index') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cubes"></i>
+                            <i class="fa fa-th-large"></i>
                         </div>
                         <span class="nav-link-text me-1">الأصناف</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.products.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.products.index') ? 'text-white active bg-gradient-primary' : '' }}" href="{{ route('admin.products.index') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-pizza-slice"></i>
+                            <i class="fa fa-check-square-o "></i>
                         </div>
-                        <span class="nav-link-text me-1">المنتجات</span>
+                        <span class="nav-link-text me-1">المخزن</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.orders.index') }}">
+                    <a class="nav-link {{ Request::routeIs('admin.models.index') ? 'text-white active bg-gradient-primary' : '' }}" href="{{ route('admin.models.index') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-shopping-bag"></i>
+
+                        </div>
+                        <span class="nav-link-text me-1"> المنتجات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::routeIs('admin.orders.index') ? 'text-white active bg-gradient-primary' : '' }}" href="{{ route('admin.orders.index') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-receipt"></i>
                         </div>
                         <span class="nav-link-text me-1">الطلبات</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ route('admin.models.index') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-info"></i>
-
-                        </div>
-                        <span class="nav-link-text me-1"> الموديل</span>
                     </a>
                 </li>
 
