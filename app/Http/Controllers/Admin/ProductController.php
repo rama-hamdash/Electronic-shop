@@ -93,7 +93,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $Products = Product::with('Category')->where('id', $id)->firstorfail();
+        $product= Product::with('Category')->where('id', $id)->firstorfail();
         return view('admin.products.show', compact('product'));
     }
 
@@ -108,7 +108,7 @@ class ProductController extends Controller
 
         $Products = Product::findOrfail($id);
         $categories = Category::all();
-        return view('admin.products.edit', compact('categories','products'));
+        return view('admin.products.edit', compact('categories', 'products'));
     }
 
     /**

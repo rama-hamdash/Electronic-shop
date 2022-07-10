@@ -34,8 +34,7 @@
                         </div>
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">المبيع</label>
-                            <textarea name="sold" rows="5" class="form-control">
-                      </textarea>
+                            <input name="sold" rows="5" placeholder="عدد القطع المباعة مسبقا" class="form-control"/>
                         </div>
 
                         <div class="input-group input-group-outline my-3">
