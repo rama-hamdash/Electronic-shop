@@ -49,9 +49,9 @@
 
                    
 
-                  <div class="input-group input-group-outline my-3">
+                  <div class="my-3">
                     <label class="">الصنف </label>
-                    <select class="p-2" name="category_id">
+                    <select class="form-select p-2" dir="ltr" name="category_id">
                       @foreach ($categories as $category)
                       <option value="{{$category->id}}">{{$category->name}}</option>
                           
