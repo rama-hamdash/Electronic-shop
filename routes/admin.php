@@ -22,72 +22,72 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::prefix('admin')->group(function() {
-// dashboard route
-Route::get('dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
+Route::prefix('admin')->group(function () {
+  // dashboard route
+  Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-  //users routes
-  Route::resource('users', UserController::class)->names([
-    'index' => 'admin.users.index',
-    'create' => 'admin.users.create',
-    'store' => 'admin.users.store',
-    'show' => 'admin.users.show',
-    'edit' => 'admin.users.edit',
-    'update' => 'admin.users.update',
-    'destroy' =>'admin.users.destroy'
-  ]) ;
+//users routes
+Route::resource('users', UserController::class)->names([
+  'index' => 'admin.users.index',
+  'create' => 'admin.users.create',
+  'store' => 'admin.users.store',
+  'show' => 'admin.users.show',
+  'edit' => 'admin.users.edit',
+  'update' => 'admin.users.update',
+  'destroy' => 'admin.users.destroy'
+]);
 
 
-   //product routes
+//product routes
 Route::resource('products', ProductController::class)->names([
-    'index' =>'admin.products.index',
-    'create' =>'admin.products.create',
-    'store' => 'admin.products.store',
-    'show' => 'admin.products.show',
-    'edit' => 'admin.products.edit',
-    'update' => 'admin.products.update',
-    'destroy' =>'admin.products.destroy'
-  
-  ]);
-  Route::get('product_category/{category_id}',[ProductRequest::class,'product_category']);
+  'index' => 'admin.products.index',
+  'create' => 'admin.products.create',
+  'store' => 'admin.products.store',
+  'show' => 'admin.products.show',
+  'edit' => 'admin.products.edit',
+  'update' => 'admin.products.update',
+  'destroy' => 'admin.products.destroy'
 
-   //categories routes
+]);
+Route::get('product_category/{category_id}', [ProductRequest::class, 'product_category']);
+
+//categories routes
 Route::resource('categories', CategoryController::class)->names([
-    'index' =>'admin.categories.index',
-    'create' =>'admin.categories.create',
-    'store' => 'admin.categories.store',
-    'show' => 'admin.categories.show',
-    'edit' => 'admin.categories.edit',
-    'update' => 'admin.categories.update',
-    'destroy' =>'admin.categories.destroy'
-  
-  ]);
+  'index' => 'admin.categories.index',
+  'create' => 'admin.categories.create',
+  'store' => 'admin.categories.store',
+  'show' => 'admin.categories.show',
+  'edit' => 'admin.categories.edit',
+  'update' => 'admin.categories.update',
+  'destroy' => 'admin.categories.destroy'
 
-   //model routes
+]);
+
+//model routes
 Route::resource('models', ModelController::class)->names([
-  'index' =>'admin.models.index',
-  'create' =>'admin.models.create',
+  'index' => 'admin.models.index',
+  'create' => 'admin.models.create',
   'store' => 'admin.models.store',
   'show' => 'admin.models.show',
   'edit' => 'admin.models.edit',
   'update' => 'admin.models.update',
-  'destroy' =>'admin.models.destroy'
+  'destroy' => 'admin.models.destroy'
 
 ]);
 
-    //orders routes
-Route::get('orders/edit_status/{order_id}',[OrderController::class,'edit_status'])->name('admin.orders.edit_status');
-Route::get('orders/assign_delivery_boy/{order_id}',[DeliveryController::class,'assign_delivery_boy_form'])->name('admin.orders.assign_delivery_boy_form');
-Route::put('orders/assign_delivery_boy',[DeliveryController::class,'assign_delivery_boy'])->name('admin.orders.assign_delivery_boy');
-Route::put('orders/update_status',[OrderController::class,'update_status'])->name('admin.orders.update_status');
-Route::get('orders/add_order_items_to_basket',[OrderController::class,'add_order_items_to_basket'])->name('admin.orders.add_order_items_to_basket');
+//orders routes
+Route::get('orders/edit_status/{order_id}', [OrderController::class, 'edit_status'])->name('admin.orders.edit_status');
+Route::get('orders/assign_delivery_boy/{order_id}', [DeliveryController::class, 'assign_delivery_boy_form'])->name('admin.orders.assign_delivery_boy_form');
+Route::put('orders/assign_delivery_boy', [DeliveryController::class, 'assign_delivery_boy'])->name('admin.orders.assign_delivery_boy');
+Route::put('orders/update_status', [OrderController::class, 'update_status'])->name('admin.orders.update_status');
+Route::get('orders/add_order_items_to_basket', [OrderController::class, 'add_order_items_to_basket'])->name('admin.orders.add_order_items_to_basket');
 Route::resource('orders', OrderController::class)->names([
-  'index' =>'admin.orders.index',
-  'create' =>'admin.orders.create',
+  'index' => 'admin.orders.index',
+  'create' => 'admin.orders.create',
   'store' => 'admin.orders.store',
   'show' => 'admin.orders.show',
   'edit' => 'admin.orders.edit',
   'update' => 'admin.orders.update',
-  'destroy' =>'admin.orders.destroy'
+  'destroy' => 'admin.orders.destroy'
 ]);
