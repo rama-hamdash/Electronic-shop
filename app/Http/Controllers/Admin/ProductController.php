@@ -138,9 +138,8 @@ class ProductController extends Controller
         } else {
             $image_url = $product->image_url;
         }
-        $product->update($request->except(['_token','_method']));
-        $product->size_id = $request->size_id;
-        $product->color_id = $request->color_id;
+        $product->update($request->except(['_token', '_method']));
+
         $product->save();
 
         return redirect()->back()->with('success', 'تم تحديث بنجاح');

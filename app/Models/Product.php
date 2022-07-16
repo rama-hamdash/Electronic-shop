@@ -19,7 +19,9 @@ class Product extends Model
         'purshase_price',
         'quantity',
         'sold',
-        'retreived'
+        'retreived',
+        'color_id',
+        'size_id',
     ];
     public function size()
     {
