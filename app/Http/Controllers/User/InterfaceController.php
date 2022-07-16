@@ -15,25 +15,28 @@ class InterfaceController extends Controller
      */
     public function index()
     {
-       $products= Product::all();  
-        return  view('user.index',compact('products'));
+        $products = Product::all();
+        return  view('user.index', compact('products'));
     }
 
-    public function product(){
+    public function product()
+    {
 
-        $products= Product::all(); 
-        return view('user.product',compact('products'));
+        $products = Product::all();
+        return view('user.product', compact('products'));
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('user.contact');
-        }
-
-
-    public function aboute(){
-        return view('user.aboute') ;
     }
-    
+
+
+    public function aboute()
+    {
+        return view('user.aboute');
+    }
+
 
     /**
      * Show the form for creating a new resource.
