@@ -124,6 +124,15 @@
     @yield('content')
 
     <div class="fixed-plugin">
+        <a href="" style="bottom:6rem;"
+            class="relative color-light fixed-plugin-button text-dark position-fixed px-3 py-2 bg-secondary" >
+            <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-primary">0
+            </span>
+
+            <i class="fa fa-heart-o py-2 " style="color:white;">
+            </i>
+
+        </a>
         <a href="{{ route('user.cart.get_content') }}"
             class="relative text-light fixed-plugin-button text-dark position-fixed px-3 py-2">
             <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-secondary">0
