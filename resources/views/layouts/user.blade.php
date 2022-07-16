@@ -61,6 +61,10 @@
             top: 0;
             right: 0;
         }
+
+        .bottom-0 {
+            bottom: 0;
+        }
     </style>
     @livewireStyles
 </head>
@@ -125,7 +129,7 @@
 
     <div class="fixed-plugin">
         <a href="" style="bottom:6rem;"
-            class="relative color-light fixed-plugin-button text-dark position-fixed px-3 py-2 bg-secondary" >
+            class="relative color-light fixed-plugin-button text-dark position-fixed px-3 py-2 bg-secondary">
             <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-primary">0
             </span>
 
