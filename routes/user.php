@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
  //   return 'hhhhhhhhhhhhh  user';
 //    });
 
+Route::get('/',[InterfaceController::class,'index'])->name('home');
 Route::get('interface',[InterfaceController::class,'index'])->name('users.interface');
 Route::get('productinterface',[InterfaceController::class,'product'])->name('product.interface');
 Route::get('contact',[InterfaceController::class,'contact'])->name('contact');
