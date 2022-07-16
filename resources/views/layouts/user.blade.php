@@ -56,6 +56,11 @@
         .caption {
             background-color: rgba(250, 250, 250, 0.5) !important;
         }
+
+        .badge {
+            top: 0;
+            right: 0;
+        }
     </style>
     @livewireStyles
 </head>
@@ -119,9 +124,13 @@
     @yield('content')
 
     <div class="fixed-plugin">
-        <a href="{{ route('user.cart.get_content') }}" class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+        <a href="{{ route('user.cart.get_content') }}"
+            class="relative text-light fixed-plugin-button text-dark position-fixed px-3 py-2">
+            <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-secondary">0
+            </span>
 
-            <i class="fas fa-shopping-cart py-2"></i>
+            <i class="fas fa-shopping-cart py-2">
+            </i>
 
         </a>
     </div>
