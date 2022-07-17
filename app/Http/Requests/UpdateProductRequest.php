@@ -31,8 +31,8 @@ class UpdateProductRequest extends FormRequest
             'purshase_price'=>['required'],
             'size_id'=>['required' ,'numeric'],
             'color_id'=>['required' ,'numeric'],
-            'price'=>['required','numeric','integer'],
-            'image_url'=>['optional','image'],
+            'price'=>['required','numeric'],
+            'image_url'=>['image'],
             ];
     }
 }

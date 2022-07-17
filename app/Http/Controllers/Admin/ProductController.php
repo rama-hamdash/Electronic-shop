@@ -66,7 +66,7 @@ class ProductController extends Controller
 
 
 
-        $image_url = $request->file('image_url')->store('public/clothe_images');
+        $image_url = $request->file('image_url')->store('public/product_images');
         $image_url = substr($image_url, strlen('public/'));
 
 

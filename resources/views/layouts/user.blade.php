@@ -70,7 +70,6 @@
 </head>
 
 <body>
-
     <!-- Pre Header -->
     <div id="pre-header">
         <div class="container">
