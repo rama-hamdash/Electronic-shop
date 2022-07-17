@@ -33,6 +33,10 @@ class InterfaceController extends Controller
     public function aboute(){
         return view('user.aboute') ;
     }
+
+    public function single_product(){
+        return view('user.single_product');
+    }
     
 
     /**
