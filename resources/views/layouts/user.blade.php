@@ -91,10 +91,10 @@
                 <ul class="col justify-content-end flex-row navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="">Login</a>
+                        <a class="nav-link" href=" ">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Signup</a>
+                        <a class="nav-link" href="{{ route('signup')}}">Signup</a>
                     </li>
 
                 </ul>

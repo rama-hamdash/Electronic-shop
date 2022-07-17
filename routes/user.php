@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\user\CartController;
 use App\Http\Controllers\user\InterfaceController;
+use App\Http\Controllers\user\SignupController;
 use Darryldecode\Cart\CartCollection;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +40,7 @@ Route::get('test', function () {
         
     return view('user.shop.basket');
 });
+
+//sinup
+Route::get('signup',[SignupController::class,'index'])->name('signup');
+Route::get('login',[SignupController::class,'login'])->name('login');
