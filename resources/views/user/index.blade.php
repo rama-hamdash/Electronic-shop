@@ -23,6 +23,7 @@
     <!-- Featured Starts Here -->
     <livewire:featured-product />
     <!-- Featred Ends Here -->
+    <livewire:category-product />
 
     <!-- Subscribe Form Ends Here -->
 @endsection
