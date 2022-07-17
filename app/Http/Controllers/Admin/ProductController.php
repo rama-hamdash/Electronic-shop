@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Requests\ProductRequestRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Modele;
@@ -93,7 +94,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $Products = Product::with('Category')->where('id', $id)->firstorfail();
+        $product = Product::with('Category')->where('id', $id)->firstorfail();
         return view('admin.products.show', compact('product'));
     }
 
@@ -106,9 +107,16 @@ class ProductController extends Controller
     public function edit($id)
     {
 
-        $Products = Product::findOrfail($id);
+        $product = Product::with('model')->findOrfail($id);
         $categories = Category::all();
-        return view('admin.products.edit', compact('categories','products'));
+        $sizes = Size::all();
+        $colors = Color::all();
+        return view('admin.products.edit', compact(
+            'categories',
+            'product',
+            'sizes',
+            'colors',
+        ));
     }
 
     /**
@@ -118,7 +126,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         $product = Product::findOrfail($id);
 
@@ -130,19 +138,9 @@ class ProductController extends Controller
         } else {
             $image_url = $product->image_url;
         }
+        $product->update($request->except(['_token', '_method']));
 
-        $product->quantity = $request->quantity;
-        $product->sold = $request->sold;
-        $product->retreived = $request->retreived;
-        $product->sel_price = $request->sel_price;
-        $product->purshase_price = $request->purshase_price;
-        $product->model_id = $request->model_id;
-        $product->size_id = $request->size_id;
-        $product->color_id = $request->color_id;
-        $product->image_url = $image_url;
-        $product->price = $request->price;
         $product->save();
-
 
         return redirect()->back()->with('success', 'تم تحديث بنجاح');
     }

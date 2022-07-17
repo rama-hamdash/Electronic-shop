@@ -15,7 +15,7 @@ class Modele extends Model
         'model_num',
         'active'
     ];
-    public function categories(){
-        return $this->belongsToMany(Category::class);
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }

@@ -10,7 +10,7 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table ="products";
+    protected $table = "products";
     protected $fillable = [
         'date',
         'price',
@@ -19,20 +19,29 @@ class Product extends Model
         'purshase_price',
         'quantity',
         'sold',
-        'retreived'
+        'retreived',
+        'color_id',
+        'size_id',
     ];
-    public function size(){
-        return $this->belongsTo(Size::class,'size_id');
+    public function size()
+    {
+        return $this->belongsTo(Size::class, 'size_id');
     }
 
-    public function color(){
-        return $this->belongsTo(Color::class,'color_id');
+    public function color()
+    {
+        return $this->belongsTo(Color::class, 'color_id');
     }
-
-   
-
-    public function order(){
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function order()
+    {
         return $this->belongsToMany(Order::class);
     }
-    
+    public function model()
+    {
+        return $this->belongsTo(Modele::class);
+    }
 }

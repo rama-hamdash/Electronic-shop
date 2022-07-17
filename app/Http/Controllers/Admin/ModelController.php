@@ -18,16 +18,16 @@ class ModelController extends Controller
      */
     public function index()
     {
-        $models= Modele ::paginate(10);
-        return view('admin.models.index',compact('models'));
+        $models = Modele::paginate(10);
+        return view('admin.models.index', compact('models'));
     }
 
     public function model_category($category_id)
     {
-       
-        
-      $category=Category::findorfail($category_id);
-       $models=$category->models;
+
+
+        $category = Category::findorfail($category_id);
+        $models = $category->models;
         return $models;
     }
 
@@ -38,8 +38,8 @@ class ModelController extends Controller
      */
     public function create()
     {
-        $categories =Category::all();
-        return view('admin.models.create',compact('categories'));
+        $categories = Category::all();
+        return view('admin.models.create', compact('categories'));
     }
 
     /**
@@ -50,17 +50,17 @@ class ModelController extends Controller
      */
     public function store(ModelRequest $request)
     {
-        $category=Category::findOrfail($request->category_id);
+        $category = Category::findOrfail($request->category_id);
 
-        $model=new Modele();
-        $model->description=$request->description;
-        $model->name=$request->name;
-        $model->category_id=$request->category_id;
-        $model->model_num=$request->model_num;
-        $model->active=1;
+        $model = new Modele();
+        $model->description = $request->description;
+        $model->name = $request->name;
+        $model->category_id = $request->category_id;
+        $model->model_num = $request->model_num;
+        $model->active = 1;
         $model->save();
 
-        return redirect()->back()->with('success','تمت الإضافة بنجاح');
+        return redirect()->back()->with('success', 'تمت الإضافة بنجاح');
     }
 
     /**
@@ -71,8 +71,8 @@ class ModelController extends Controller
      */
     public function show($id)
     {
-        $model= Modele::with('Category')->where('id',$id)->firstorfail();
-        return view('admin.models.show',compact('model'));
+        $model = Modele::with('Category')->where('id', $id)->firstorfail();
+        return view('admin.models.show', compact('model'));
     }
 
     /**
@@ -83,9 +83,9 @@ class ModelController extends Controller
      */
     public function edit($id)
     {
-        $model= Modele::findOrfail($id);
-        $categories= Category::all();
-        return view('admin.models.edit',compact('categories','model'));
+        $model = Modele::findOrfail($id);
+        $categories = Category::all();
+        return view('admin.models.edit', compact('categories', 'model'));
     }
 
     /**
@@ -97,17 +97,9 @@ class ModelController extends Controller
      */
     public function update(ModelRequest $request, $id)
     {
-        $model = Modele::findOrfail($id);
+        $model = Modele::whereId($id)->update($request->except(['_token', '_method']));
 
-        $model=new Modele();
-        $model->description=$request->description;
-        $model->name=$request->name;
-        $model->category_id=$request->category_id;
-        $model->model_num=$request->model_num;
-        $model->active=1;
-        $model->save();
-
-        return redirect()->back()->with('success','تم تحديث بنجاح');
+        return redirect()->back()->with('success', 'تم تحديث بنجاح');
     }
 
     /**
@@ -120,6 +112,6 @@ class ModelController extends Controller
     {
         $model = Modele::findorfail($id);
         $model->delete();
-        return redirect()->route('admin.models.index')->with('success','تم الحذف بنجاح');
+        return redirect()->route('admin.models.index')->with('success', 'تم الحذف بنجاح');
     }
 }

@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-    <title>Pixie - Ecommerce HTML5 Template</title>
+    <title>Ecommerce</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -45,14 +45,28 @@
             cursor: pointer;
         }
 
+        #navbarResponsive {
+            top: 78px !important
+        }
+
         .fa-shopping-cart:before {
             color: white;
         }
+
+        .caption {
+            background-color: rgba(250, 250, 250, 0.5) !important;
+        }
+
+        .badge {
+            top: 0;
+            right: 0;
+        }
+
+        .bottom-0 {
+            bottom: 0;
+        }
     </style>
-    <!--
-Tooplate 2114 Pixie
-https://www.tooplate.com/view/2114-pixie
--->
+    @livewireStyles
 </head>
 
 <body>
@@ -62,7 +76,6 @@ https://www.tooplate.com/view/2114-pixie
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <span>Suspendisse laoreet magna vel diam lobortis imperdiet</span>
                 </div>
             </div>
         </div>
@@ -71,28 +84,43 @@ https://www.tooplate.com/view/2114-pixie
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ asset('assets/#') }}"><img
-                    src="{{ asset('assets/images/header-logo.png') }}" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('users.interface') }}">Home<span class="sr-only">(current)</span>
-                        </a>
+            <div class="row  w-100 align-items-center">
+                <a class="col navbar-brand text-left p-2 text-capitalize text-primary font-weight-bold"
+                    href="{{ asset('assets/#') }}">
+                    <h3>E-SHOP</h3>
+                </a>
+                <ul class="col justify-content-end flex-row navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.interface') }}">Products</a>
+                        <a class="nav-link" href="">Signup</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('aboute') }}">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
-                    </li>
+
                 </ul>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('users.interface') }}">Home<span
+                                    class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('product.interface') }}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('aboute') }}">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -100,10 +128,22 @@ https://www.tooplate.com/view/2114-pixie
     @yield('content')
 
     <div class="fixed-plugin">
-        <a href="{{ route('user.cart.get_content') }}"
-            class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+        <a href="" style="bottom:6rem;"
+            class="relative color-light fixed-plugin-button text-dark position-fixed px-3 py-2 bg-secondary">
+            <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-primary">0
+            </span>
 
-            <i class="fas fa-shopping-cart py-2"></i>
+            <i class="fa fa-heart-o py-2 " style="color:white;">
+            </i>
+
+        </a>
+        <a href="{{ route('user.cart.get_content') }}"
+            class="relative text-light fixed-plugin-button text-dark position-fixed px-3 py-2">
+            <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-secondary">0
+            </span>
+
+            <i class="fas fa-shopping-cart py-2">
+            </i>
 
         </a>
     </div>
@@ -111,11 +151,7 @@ https://www.tooplate.com/view/2114-pixie
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="logo">
-                        <img src="{{ asset('assets/images/header-logo.png') }}" alt="">
-                    </div>
-                </div>
+
                 <div class="col-md-12">
                     <div class="footer-menu">
                         <ul>
@@ -149,9 +185,9 @@ https://www.tooplate.com/view/2114-pixie
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2019 Company Name
+                        <p>Copyright &copy; 2022 ESHOP
 
-                            - Design: <a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a></p>
+                            - By: Rama & Bayan </p>
                     </div>
                 </div>
             </div>
@@ -180,7 +216,7 @@ https://www.tooplate.com/view/2114-pixie
             }
         }
     </script>
-
+    @livewireScripts
 
 </body>
 
