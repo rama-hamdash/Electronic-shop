@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\user\CartController;
 use App\Http\Controllers\user\InterfaceController;
+use App\Http\Controllers\user\LoginController;
 use App\Http\Controllers\user\SignupController;
 use Darryldecode\Cart\CartCollection;
 use Illuminate\Support\Facades\Route;
@@ -43,4 +44,4 @@ Route::get('test', function () {
 
 //sinup
 Route::get('signup',[SignupController::class,'index'])->name('signup');
-Route::get('login',[SignupController::class,'login'])->name('login');
+Route::get('login',[LoginController::class,'index'])->name('login');
