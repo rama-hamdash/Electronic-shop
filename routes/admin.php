@@ -48,7 +48,6 @@ Route::resource('products', ProductController::class)->names([
   'edit' => 'admin.products.edit',
   'update' => 'admin.products.update',
   'destroy' => 'admin.products.destroy'
-
 ]);
 Route::get('product_category/{category_id}', [ProductRequest::class, 'product_category']);
 
