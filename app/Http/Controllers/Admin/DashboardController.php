@@ -18,7 +18,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
         $users_count= User::count();
         $categories_count= Category::count();
         $products_count= Product::count();

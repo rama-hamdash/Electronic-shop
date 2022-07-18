@@ -28,14 +28,17 @@
   
           <div class="row posts">
               <div id="1" class="item new col-md-4">
+                @foreach
                 <a href="single-product.html">
                   <div class="featured-item">
-                    <img src="{{asset('assets/images/product-01.jpg')}}" alt="">
-                    <h4>Proin vel ligula</h4>
-                    <h6>$15.00</h6>
+                    <img src="{{asset('storage/' .$p->image_url)}}" alt="">
+                    <h4>{{$p->name}}</h4>
+                    <h6>SYP {{$p->price}}</h6>
                   </div>
                 </a>
               </div>
+                @endforeach
+               
               <div id="2" class="item high col-md-4">
                 <a href="{{asset('assets/single-product.html')}}">
                   <div class="featured-item">
