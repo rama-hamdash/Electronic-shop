@@ -8,9 +8,11 @@
                         <h5 class="text-uppercase mb-4">Categories</h5>
                         @foreach ($categories as $category )
                             <div class="py-2 px-4 bg-dark  mb-3">
-                                <strong class="small text-uppercase font-weight-bold ">
-                                    category
-                                </strong>
+                                <a wire:click.prevent="selectCategory({{$category->id}})" style="cursor:pointer;">
+                                    <strong class="small text-uppercase font-weight-bold ">
+                                        {{$category->name}}
+                                    </strong>
+                                </a>
                             </div>
                         @endforeach
                         </ul>
@@ -19,12 +21,12 @@
                     <!-- SHOP LISTING-->
                     <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
                         <div class="row g-2">
-                            @foreach (range(0,1) as $product)
+                            @foreach ($products as $product)
                                 <div class="col">
                                     <a  href="{{ asset('assets/single-product.html') }}">
-                                        <div class="featured-item">
+                                        <div class="featured-item" style="max-width: 22rem;">
                                             <div class="position-relative">
-                                                <img src="{{ asset('assets/images/item-01.jpg') }}" alt="Item 1">
+                                                <img src="{{ asset('storage/'.$product->image_url) }}" alt="Item 1">
                                                 <div class="product-overlay">
                                                     <ul class="mb-0 list-inline">
                                                         <li class="list-inline-item m-0 p-0">
@@ -50,8 +52,8 @@
                                                 </div>
                                             </div>
                                             <div class="px-3 mb-2">
-                                                <h4>Proin vel ligula</h4>
-                                                <h6>$15.00</h6>
+                                                <h4>{{$product->name}}</h4>
+                                                <h6>SYP {{$product->price}}</h6>
                                             </div>
                                         </div>
                                     </a>
