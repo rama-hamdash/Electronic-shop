@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ModelController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Route;
@@ -90,3 +91,6 @@ Route::resource('orders', OrderController::class)->names([
   'update' => 'admin.orders.update',
   'destroy' => 'admin.orders.destroy'
 ]);
+
+//profile route
+Route::get('profile',[ProfileController::class,'index'])->name('profile.admin');
