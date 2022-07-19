@@ -42,6 +42,6 @@ Route::get('test', function () {
     return view('user.shop.basket');
 });
 
-//sinup
+//Auth
 Route::get('signup',[SignupController::class,'index'])->name('signup');
 Route::get('login',[LoginController::class,'index'])->name('login');

@@ -65,6 +65,9 @@
         .bottom-0 {
             bottom: 0;
         }
+        .nav-link-active{
+            color: #3a8bcd !important;
+        }
     </style>
     @livewireStyles
 </head>
@@ -91,10 +94,10 @@
                 <ul class="col justify-content-end flex-row navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href=" ">Login</a>
+                        <a class="nav-link {{ Request::routeIs('login') ? 'nav-link-active' : '' }}" href="{{route('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('signup')}}">Signup</a>
+                        <a class="nav-link {{ Request::routeIs('signup') ? 'nav-link-active' : '' }}" href="{{ route('signup')}}">Signup</a>
                     </li>
 
                 </ul>
