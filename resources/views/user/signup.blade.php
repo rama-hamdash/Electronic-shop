@@ -19,17 +19,18 @@
             <div class="col-md-6">
               <div class="right-content">
                 <div class="container">
-                  <form id="contact" action="" method="post">
+                  <form method="POST" action="{{ route('admin.users.store') }}">
+                    @csrf
                     <div class="row">
                       <div class="col-md-6">
                         <fieldset>
-                          <input name="first_name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                          <input name="first_name" type="text" class="form-control" id="name" placeholder="Your first name..." required="">
                         </fieldset>
                       </div>
 
                       <div class="col-md-6">
                         <fieldset>
-                          <input name="last_name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                          <input name="last_name" type="text" class="form-control" id="name" placeholder="Your last name..." required="">
                         </fieldset>
                       </div>
                       <div class="col-md-6">

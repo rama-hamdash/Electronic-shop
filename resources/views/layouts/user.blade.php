@@ -99,6 +99,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Request::routeIs('signup') ? 'nav-link-active' : '' }}" href="{{ route('signup')}}">Signup</a>
                     </li>
+                    
 
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
