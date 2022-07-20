@@ -65,7 +65,7 @@
                                 <h6 class="mb-0">الاسم الكامل</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                علي الملا
+                                {{$user->first_name}}  {{$user->last_name}}
                             </div>
                         </div>
                         <hr>
@@ -74,7 +74,7 @@
                                 <h6 class="mb-0">البريد الالكتروني</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Alip@jukmuh.al
+                                {{$user->email}}
                             </div>
                         </div>
                         <hr>
@@ -83,7 +83,7 @@
                                 <h6 class="mb-0">رقم الموبايل</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                0993891408
+                                {{$user->mobile}}
                             </div>
                         </div>
                         <hr>
@@ -92,7 +92,7 @@
                                 <h6 class="mb-0">العنوان</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                مزة الشارع العام
+                                
                             </div>
                         </div>
         
