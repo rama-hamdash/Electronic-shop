@@ -29,7 +29,7 @@ class CartController extends Controller
     {
         $request->validate([
             'quantity' => ['required','numeric','integer','min:1'],
-            'clothe_id' => ['required','numeric']
+            'product_id' => ['required','numeric']
         ]);
 
         $product = Product::findOrfail($request->product_id);
