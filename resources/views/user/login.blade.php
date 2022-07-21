@@ -18,7 +18,8 @@
                 <div class="col-md-6">
                     <div class="right-content">
                         <div class="container">
-                            <form id="contact" action="" method="post">
+                            <form id="contact" action="{{route('authenticate')}}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <fieldset>
@@ -41,14 +42,7 @@
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12">
-                                        {{-- <div class="share">
-                                            <h6>You can also keep in touch on: <span><a href="{{ asset('assets/#') }}"><i
-                                                            class="fa fa-facebook"></i></a><a
-                                                        href="{{ asset('assets/#') }}"><i
-                                                            class="fa fa-linkedin"></i></a><a
-                                                        href="{{ asset('assets/#') }}"><i
-                                                            class="fa fa-twitter"></i></a></span></h6>
-                                        </div> --}}
+                                 
                                     </div>
                                 </div>
                             </form>

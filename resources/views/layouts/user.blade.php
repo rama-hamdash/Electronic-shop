@@ -65,10 +65,18 @@
         .bottom-0 {
             bottom: 0;
         }
-        .nav-link-active{
+
+        .nav-link-active {
             color: #3a8bcd !important;
         }
-    </style>
+
+        .featured-item img {
+            width: 15rem;
+            height: 22rem;
+            object-fit: cover;
+        }
+        </style>
+        @yield('styles')
     @livewireStyles
 </head>
 
@@ -92,15 +100,21 @@
                     <h3>E-SHOP</h3>
                 </a>
                 <ul class="col justify-content-end flex-row navbar-nav ml-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::routeIs('login') ? 'nav-link-active' : '' }}" href="{{route('login')}}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::routeIs('signup') ? 'nav-link-active' : '' }}" href="{{ route('signup')}}">Signup</a>
-                    </li>
-                    
-
+                    @if (!Auth::user())
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::routeIs('login') ? 'nav-link-active' : '' }}"
+                                href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::routeIs('signup') ? 'nav-link-active' : '' }}"
+                                href="{{ route('signup') }}">Signup</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::routeIs('logout') ? 'nav-link-active' : '' }}"
+                                href="{{ route('logout') }}">Logout</a>
+                        </li>
+                    @endif
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,7 +128,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('product.interface') }}">Products</a>
+                            <a class="nav-link" href="{{ route('shop.interface') }}">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('aboute') }}">About Us</a>

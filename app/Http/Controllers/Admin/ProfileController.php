@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -14,7 +15,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('admin.profile',compact('users'));
+        $user = Auth()->user();
+        return view('admin.profile',compact('user'));
     }
 
     /**

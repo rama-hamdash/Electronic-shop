@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\Modele;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -19,11 +20,16 @@ class InterfaceController extends Controller
         return  view('user.index', compact('products'));
     }
 
-    public function product()
+    public function shop()
     {
-
         $products = Product::all();
-        return view('user.product', compact('products'));
+        return view('user.shop', compact('products'));
+    }
+
+    public function product(Modele $model)
+    {
+        $product = Product::all();
+        return view('user.product', compact('model'));
     }
 
     public function contact()
@@ -31,10 +37,11 @@ class InterfaceController extends Controller
         return view('user.contact');
     }
 
-    public function single_product(){
+    public function single_product()
+    {
         return view('user.single_product');
     }
-    
+
 
     public function aboute()
     {

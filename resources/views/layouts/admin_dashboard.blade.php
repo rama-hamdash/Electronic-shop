@@ -90,7 +90,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ asset('profile.admin') }}">
+                    <a class="nav-link " href="{{ route('profile.admin') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-user"></i>
                         </div>
@@ -98,7 +98,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ asset('dashboard_assets/../pages/sign-in.html') }}">
+                    <a class="nav-link " href="{{ route('logout') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-sign-out-alt"></i>
                         </div>

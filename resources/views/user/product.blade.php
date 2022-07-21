@@ -1,136 +1,208 @@
 @extends('layouts.user')
+@section('styles')
+    <style>
+        body {
+            background-color: #ecedee
+        }
+
+        .card {
+            border: none;
+            overflow: hidden
+        }
+
+        .thumbnail_images ul {
+            list-style:
+                none;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            margin-top: 10px
+        }
+
+        .thumbnail_images ul li {
+            margin:
+                5px;
+            padding: 10px;
+            border: 2px solid #eee;
+            cursor: pointer;
+            transition: all 0.5s
+        }
+
+        .thumbnail_images ul li:hover {
+            border: 2px solid #000
+        }
+
+        .main_image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            height:
+                400px;
+            width: 100%;
+            overflow: hidden
+        }
+
+        .heart {
+            height: 29px;
+            width: 29px;
+            background-color: #eaeaea;
+            border-radius: 50%;
+            display:
+                flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .content p {
+            font-size: 12px
+        }
+
+        .ratings span {
+            font-size: 14px;
+            margin-left:
+                12px
+        }
+
+        .colors {
+            margin-top: 5px
+        }
+
+        .colors ul {
+            list-style: none;
+            display: flex;
+            padding-left: 0px
+        }
+
+        .colors ul li {
+            height:
+                20px;
+            width: 20px;
+            display: flex;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer
+        }
+
+        .colors ul li:nth-child(1) {
+            background-color: #6c704d
+        }
+
+        .colors ul li:nth-child(2) {
+            background-color: #96918b
+        }
+
+        .colors ul li:nth-child(3) {
+            background-color: #68778e
+        }
+
+        .colors ul li:nth-child(4) {
+            background-color: #263f55
+        }
+
+        .colors ul li:nth-child(5) {
+            background-color: black
+        }
+
+        .right-side {
+            position: relative
+        }
+
+        .search-option {
+            position:
+                absolute;
+            background-color: #000;
+            overflow: hidden;
+            align-items: center;
+            color: #fff;
+            width: 200px;
+            height:
+                200px;
+            border-radius: 49% 51% 50% 50% / 68% 69% 31% 32%;
+            left: 30%;
+            bottom: -250px;
+            transition: all 0.5s;
+            cursor:
+                pointer
+        }
+
+        .search-option .first-search {
+            position: absolute;
+            top: 20px;
+            left: 90px;
+            font-size: 20px;
+            opacity:
+                1000
+        }
+
+        .search-option .inputs {
+            opacity: 0;
+            transition: all 0.5s ease;
+            transition-delay: 0.5s;
+            position:
+                relative
+        }
+
+        .search-option .inputs input {
+            position: absolute;
+            top: 200px;
+            left: 30px;
+            padding-left: 20px;
+            background-color:
+                transparent;
+            width: 300px;
+            border: none;
+            color: #fff;
+            border-bottom: 1px solid #eee;
+            transition: all 0.5s;
+            z-index:
+                10
+        }
+
+        .search-option .inputs input:focus {
+            box-shadow: none;
+            outline: none;
+            z-index: 10
+        }
+
+        .search-option:hover {
+            border-radius:
+                0px;
+            width: 100%;
+            left: 0px
+        }
+
+        .search-option:hover .inputs {
+            opacity: 1
+        }
+
+        .search-option:hover .first-search {
+            left: 27px;
+            top:
+                25px;
+            font-size: 15px
+        }
+
+        .search-option:hover .inputs input {
+            top: 20px
+        }
+
+        .search-option .share {
+            position: absolute;
+            right:
+                20px;
+            top: 22px
+        }
+
+        .buttons .btn {
+            height: 50px;
+            width: 150px;
+            border-radius: 0px !important
+        }
+    </style>
+@endsection
 @section('content')
-
-    <!-- Page Content -->
-    <!-- Items Starts Here -->
-    <div class="featured-page">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <div class="section-heading">
-                <div class="line-dec"></div>
-                <h1>Featured Items</h1>
-              </div>
-            </div>
-            <div class="col-md-8 col-sm-12">
-              <div id="filters" class="button-group">
-                <button class="btn btn-primary" data-filter="*">All Products</button>
-                <button class="btn btn-primary" data-filter=".new">Newest</button>
-                <button class="btn btn-primary" data-filter=".low">Low Price</button>
-                <button class="btn btn-primary" data-filter=".high">Hight Price</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="featured container no-gutter">
-  
-          <div class="row posts">
-              <div id="1" class="item new col-md-4">
-                @foreach($products as $product )
-                <a href="single-product.html">
-                  <div class="featured-item">
-                    <img src="{{asset('storage/' .$product->image_url)}}" alt="">
-                    <h4>{{$product->name}}</h4>
-                    <h6>SYP {{$product->price}}</h6>
-                  </div>
-                </a>
-              </div>
-                @endforeach
-               
-              <div id="2" class="item high col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-02.jpg')}}" alt="">
-                    <h4>Erat odio rhoncus</h4>
-                    <h6>$25.00</h6>
-                  </div>
-                </a>
-              </div>
-              <div id="3" class="item low col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-03.jpg')}}" alt="">
-                    <h4>Integer vel turpis</h4>
-                    <h6>$35.00</h6>
-                  </div>
-                </a>
-              </div>
-              <div id="4" class="item low col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-04.jpg')}}" alt="">
-                    <h4>Sed purus quam</h4>
-                    <h6>$45.00</h6>
-                  </div>
-                </a>
-              </div>
-              <div id="5" class="item new high col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-05.jpg')}}" alt="">
-                    <h4>Morbi aliquet</h4>
-                    <h6>$55.00</h6>
-                  </div>
-                </a>
-              </div>
-              <div id="6" class="item new col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-06.jpg')}}" alt="">
-                    <h4>Urna ac diam</h4>
-                    <h6>$65.00</h6>
-                  </div>
-                </a>
-              </div>
-              <div id="7" class="item new high col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-03.jpg')}}" alt="">
-                    <h4>Proin eget imperdiet</h4>
-                    <h6>$75.00</h6>
-                  </div>
-                </a>
-              </div>
-              <div id="8" class="item low new col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-02.jpg')}}" alt="">
-                    <h4>Nullam risus nisl</h4>
-                    <h6>$85.00</h6>
-                  </div>
-                </a>
-              </div>
-              <div id="9" class="item new col-md-4">
-                <a href="{{asset('assets/single-product.html')}}">
-                  <div class="featured-item">
-                    <img src="{{asset('assets/images/product-01.jpg')}}" alt="">
-                    <h4>Cras tempus</h4>
-                    <h6>$95.00</h6>
-                  </div>
-                </a>
-              </div>
-          </div>
-      </div>
-  
-      <div class="page-navigation">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <ul>
-                <li class="current-page"><a href="{{asset('assets/#')}}">1</a></li>
-                <li><a href="{{asset('assets/#')}}">2</a></li>
-                <li><a href="{{asset('assets/#')}}">3</a></li>
-                <li><a href="{{asset('assets/#')}}"><i class="fa fa-angle-right"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Featred Page Ends Here -->
-  
-  
-     
-
-      @endsection
+    <div class="container mt-5 mb-5">
+     <livewire:product :model="$model"/>
+    </div>
+@endsection
