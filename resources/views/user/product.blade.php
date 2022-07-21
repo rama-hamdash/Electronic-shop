@@ -7,7 +7,8 @@
 
         .card {
             border: none;
-            overflow: hidden
+            overflow: hidden; 
+            margin-top: 7rem;
         }
 
         .thumbnail_images ul {
@@ -83,6 +84,21 @@
             margin-right: 10px;
             cursor: pointer
         }
+        .sizes ul li {
+            height:
+                20px;
+            width: 20px;
+            display: flex;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer
+        }
+
+        .sizes ul {
+            list-style: none;
+            display: flex;
+            padding-left: 0px;
+        }
 
         .colors ul li:nth-child(1) {
             background-color: #6c704d
@@ -108,92 +124,6 @@
             position: relative
         }
 
-        .search-option {
-            position:
-                absolute;
-            background-color: #000;
-            overflow: hidden;
-            align-items: center;
-            color: #fff;
-            width: 200px;
-            height:
-                200px;
-            border-radius: 49% 51% 50% 50% / 68% 69% 31% 32%;
-            left: 30%;
-            bottom: -250px;
-            transition: all 0.5s;
-            cursor:
-                pointer
-        }
-
-        .search-option .first-search {
-            position: absolute;
-            top: 20px;
-            left: 90px;
-            font-size: 20px;
-            opacity:
-                1000
-        }
-
-        .search-option .inputs {
-            opacity: 0;
-            transition: all 0.5s ease;
-            transition-delay: 0.5s;
-            position:
-                relative
-        }
-
-        .search-option .inputs input {
-            position: absolute;
-            top: 200px;
-            left: 30px;
-            padding-left: 20px;
-            background-color:
-                transparent;
-            width: 300px;
-            border: none;
-            color: #fff;
-            border-bottom: 1px solid #eee;
-            transition: all 0.5s;
-            z-index:
-                10
-        }
-
-        .search-option .inputs input:focus {
-            box-shadow: none;
-            outline: none;
-            z-index: 10
-        }
-
-        .search-option:hover {
-            border-radius:
-                0px;
-            width: 100%;
-            left: 0px
-        }
-
-        .search-option:hover .inputs {
-            opacity: 1
-        }
-
-        .search-option:hover .first-search {
-            left: 27px;
-            top:
-                25px;
-            font-size: 15px
-        }
-
-        .search-option:hover .inputs input {
-            top: 20px
-        }
-
-        .search-option .share {
-            position: absolute;
-            right:
-                20px;
-            top: 22px
-        }
-
         .buttons .btn {
             height: 50px;
             width: 150px;
@@ -203,6 +133,6 @@
 @endsection
 @section('content')
     <div class="container mt-5 mb-5">
-     <livewire:product :model="$model"/>
+        <livewire:product :model="$model" :product="$product" />
     </div>
 @endsection

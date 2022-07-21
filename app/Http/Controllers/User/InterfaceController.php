@@ -26,10 +26,11 @@ class InterfaceController extends Controller
         return view('user.shop', compact('products'));
     }
 
-    public function product(Modele $model)
+    public function product(Product $product)
     {
-        $product = Product::all();
-        return view('user.product', compact('model'));
+        $model = $product->model;
+
+        return view('user.product', compact('model','product'));
     }
 
     public function contact()

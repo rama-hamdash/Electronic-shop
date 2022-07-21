@@ -12,7 +12,7 @@
                     <div class="owl-carousel owl-theme">
                         {{-- go with foreach on featured products --}}
                         @foreach ($products as $p)
-                            <a href="{{ asset('assets/single-product.html') }}">
+                            <a href="{{ route('product.interface',[$p->id]) }}">
                                 <div class="featured-item">
                                     <div class="position-relative">
                                         <img src="{{ asset('storage/' .$p->image_url) }}" alt="Item 1">

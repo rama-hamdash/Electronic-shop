@@ -96,7 +96,7 @@
         <div class="container">
             <div class="row  w-100 align-items-center">
                 <a class="col navbar-brand text-left p-2 text-capitalize text-primary font-weight-bold"
-                    href="{{ asset('assets/#') }}">
+                    href="{{ route('home') }}">
                     <h3>E-SHOP</h3>
                 </a>
                 <ul class="col justify-content-end flex-row navbar-nav ml-auto">

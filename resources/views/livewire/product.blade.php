@@ -36,6 +36,16 @@
                         </div>
                         <span>441 reviews</span>
                     </div>
+                    <div class="mt-5"> <span class="fw-bold">Sizes</span>
+                        <div class="sizes">
+                            <ul >
+                                @foreach ($sizes as $s)
+                                <li class="{{$s == $product->size->name? 'font-weight-bold': ''}}">{{$s}}</li>
+                                    
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                     <div class="mt-5"> <span class="fw-bold">Color</span>
                         <div class="colors">
                             <ul id="marker">
