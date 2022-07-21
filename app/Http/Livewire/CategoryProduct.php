@@ -19,7 +19,7 @@ class CategoryProduct extends Component
 
     public function mount()
     {
-        $this->categories = Category::inRandomOrder()->limit(8)->get();
+        $this->categories = Category::inRandomOrder()->whereHas('models', operator: '>', count: 0)->limit(3)->get();
         $this->products = Product::whereRelation('model','category_id', $this->categories[0]->id)->inRandomOrder()->limit(8)->get();
     }
     public function render()

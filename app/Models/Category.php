@@ -15,6 +15,6 @@ class Category extends Model
         'description'
     ];
     public function models(){
-        return $this->belongsToMany(Modele::class);
+        return $this->hasMany(Modele::class);
     }
 }
