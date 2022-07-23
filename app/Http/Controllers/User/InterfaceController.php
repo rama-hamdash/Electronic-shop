@@ -49,6 +49,11 @@ class InterfaceController extends Controller
         return view('user.aboute');
     }
 
+    public function myorders(){
+        //$orders= Order::with('user')->paginate(10);
+        return view('user.myorders',compact('orders'));
+
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -38,6 +38,11 @@ Route::get('cart/update_item',[CartController::class,'updateCart'])->name('user.
 Route::get('cart/delete_item/{item_id}',[CartController::class,'removecart'])->name('user.cart.delete_item');
 Route::get('cart/clear_cart',[CartController::class,'clearAllCart'])->name('user.cart.clear_cart');
 
+
+// my orders route
+Route::get('myorders',[InterfaceController::class,'myorders'])->name('myorders');
+
+
 Route::get('test', function () {
         
     return view('user.shop.basket');
