@@ -19,7 +19,7 @@
             <div class="col-md-6">
               <div class="right-content">
                 <div class="container">
-                  <form method="POST" action="{{ route('admin.users.store') }}">
+                  <form method="POST" action="{{ route('signup.store') }}">
                     @csrf
                     <div class="row">
                       <div class="col-md-6">

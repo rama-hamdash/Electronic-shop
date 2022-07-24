@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\user\LoginController;
+use App\Http\Controllers\user\SignupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dash
 //Auth
 Route::middleware(['guest'])->group(function () {
     Route::get('signup', [SignupController::class, 'index'])->name('signup');
+    Route::post('signup', [SignupController::class, 'store'])->name('signup.store');
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'login'])->name('authenticate');
 });

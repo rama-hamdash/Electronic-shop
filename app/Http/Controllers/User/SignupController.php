@@ -24,7 +24,7 @@ class SignupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(array $data)
+    public function store(Request $data)
     {
         $customer = User::create([
             'first_name' => $data['first_name'],
@@ -32,21 +32,13 @@ class SignupController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']) ,
             'mobile' => $data['mobile'],
+            'role' => 'customer',
+            'active' => true,
 
         ]);
-        $customer->attachRole(Role::WhereName('customer')->first()->id);
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
