@@ -31,7 +31,13 @@ class Product extends Model
             get: fn ($value) => $this->model->name,
         );
     }
-    public function size()
+    protected function isAvailable(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ($this->quantity - $this->sold) == 0 ? false : true,
+        );
+    }
+public function size()
     {
         return $this->belongsTo(Size::class, 'size_id');
     }

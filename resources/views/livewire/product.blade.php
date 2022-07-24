@@ -36,6 +36,13 @@
                         </div>
                         <span>441 reviews</span>
                     </div>
+                    <div class="d-flex justify-content-between align-items-center ">
+                        @if ($p->is_available)
+                            <span class="badge badge-success">in stock</span>
+                        @else
+                            <span class="badge badge-secondary">out of stock</span>
+                        @endif
+                    </div>
                     <div class="mt-5"> <span class="fw-bold">Sizes</span>
                         <div class="sizes">
                             <ul >
@@ -46,7 +53,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="mt-5"> <span class="fw-bold">Color</span>
+                    <div class="mt-2"> <span class="fw-bold">Color</span>
                         <div class="colors">
                             <ul id="marker">
                                 <li id="marker-1"></li>

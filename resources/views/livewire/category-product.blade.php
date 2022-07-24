@@ -22,9 +22,9 @@
                     <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
                         <div class="row g-2">
                             @foreach ($products as $product)
-                                <div class="col">
-                                    <a  href="{{ asset('assets/single-product.html') }}">
-                                        <div class="featured-item" style="max-width: 22rem;">
+                                <div class="">
+                                    <a  href="{{ route('product.interface',[$product->id])  }}">
+                                        <div class="featured-item">
                                             <div class="position-relative">
                                                 <img src="{{ asset('storage/'.$product->image_url) }}" alt="Item 1">
                                                 <div class="product-overlay">

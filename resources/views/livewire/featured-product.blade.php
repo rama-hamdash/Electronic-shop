@@ -12,10 +12,10 @@
                     <div class="owl-carousel owl-theme">
                         {{-- go with foreach on featured products --}}
                         @foreach ($products as $p)
-                            <a href="{{ route('product.interface',[$p->id]) }}">
+                            <a href="{{ route('product.interface', [$p->id]) }}">
                                 <div class="featured-item">
                                     <div class="position-relative">
-                                        <img src="{{ asset('storage/' .$p->image_url) }}" alt="Item 1">
+                                        <img src="{{ asset('storage/' . $p->image_url) }}" alt="Item 1">
                                         <div class="product-overlay">
                                             <ul class="mb-0 list-inline">
                                                 <li class="list-inline-item m-0 p-0">
@@ -40,8 +40,15 @@
                                         </div>
                                     </div>
                                     <div class="px-3 mb-2">
-                                        <h4>{{$p->name}}</h4>
-                                        <h6>SYP {{$p->price}}</h6>
+                                        <div class="d-flex justify-content-between align-items-center ">
+                                            <h4>{{ $p->name }}</h4>
+                                            @if ($p->is_available)
+                                                <span class="badge badge-success">in stock</span>
+                                            @else
+                                                <span class="badge badge-secondary">out of stock</span>
+                                            @endif
+                                        </div>
+                                        <h6>SYP {{ $p->price }}</h6>
                                     </div>
                                 </div>
                             </a>
