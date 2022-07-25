@@ -1,15 +1,17 @@
-<div>
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h4><button wire:click="clearAllCart" class="btn btn-light text-danger"><i
-                        class="fas fa-trash-alt"></i></button></h4>
-        </div>
-    </div>
+
    
 
 
 
     {{--  --}}
+
+    <div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h4><button wire:click="clearAllCart" class="btn btn-light text-danger"><i
+                            class="fas fa-trash-alt"></i></button></h4>
+            </div>
+        </div>
 
     <div class="card">
       <div class="row">
