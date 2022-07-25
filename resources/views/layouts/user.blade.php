@@ -128,7 +128,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('shop.interface') }}">Products</a>
+                            <a class="nav-link" href="{{ route('shop.interface') }}">shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('aboute') }}">About Us</a>

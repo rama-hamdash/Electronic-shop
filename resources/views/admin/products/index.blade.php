@@ -68,7 +68,7 @@
                                         <td>{{ $product->retreived }}</td>
                                         <td>{{ $product->sel_price }}</td>
                                         <td>{{ $product->purshase_price }}</td>
-                                        <td>{{ $product->price }}</td>
+                                        <td>SYP {{ $product->price }}</td>
                                         <td><img src="{{ asset('storage/' . $product->image_url) }}" width="50px"
                                                 height="50px"></td>
                                         <td><a class="text-info"

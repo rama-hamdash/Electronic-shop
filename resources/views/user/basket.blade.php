@@ -40,7 +40,7 @@
                                         <div>
                                             <div class="card-body">
                                                 <a href="{{ route('shop.interface') }}"
-                                                    class="btn btn-dark text-white btn-block btn-md">قائمة المنتجات</a>
+                                                    class="btn btn-dark text-white btn-block btn-md">SHOP </a>
                                             </div>
                                         </div>
 

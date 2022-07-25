@@ -30,7 +30,7 @@
 
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <input name="password" type="text" class="form-control" id="password"
+                                            <input name="password" type="password" class="form-control" id="password"
                                                 placeholder="Your password..." required="">
                                         </fieldset>
                                     </div>

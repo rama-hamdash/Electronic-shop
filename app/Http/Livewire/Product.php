@@ -4,8 +4,14 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+
+use Darryldecode\Cart\Facades\Cartfacade as cart;
 class Product extends Component
 {
+    use LivewireAlert;
+
+
     public $model;
     public $product;
     public $sizes;
@@ -35,5 +41,18 @@ class Product extends Component
     public function render()
     {
         return view('livewire.product');
+    }
+    public function addToBasket($id, $qty, $price)
+    {
+        $this->alert('success', 'item added');
+        $this->alert('success', 'item added');
+        $product = Product::find($id);
+        Cart::add([
+            'id' => $id,
+            'price' => $price,
+            'quantity' => $qty,
+            'name' => $product->name,
+            'image_url' => $product->image_url,
+        ]);
     }
 }

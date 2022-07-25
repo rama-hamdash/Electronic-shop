@@ -32,7 +32,7 @@
             <a class="navbar-brand m-0" href=" " target="_blank">
                 <img src="{{ asset('dashboard_assets/img/logo-ct.png') }}" class="navbar-brand-img h-100"
                     alt="main_logo">
-                <span class="me-1 font-weight-bold text-white">YASMEEN</span>
+                <span class="me-1 font-weight-bold text-white">E-SHOP</span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">

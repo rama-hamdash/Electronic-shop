@@ -64,9 +64,13 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="buttons d-flex flex-row mt-5 gap-3">
-                        <button class="btn btn-dark">Add to Cart</button>
-                    </div>
+                 
+                    <li class="list-inline-item m-0 p-0 text-light">
+                        <a wire:click.prevent="addToBasket({{$p->id}},1,{{$p->price}})" class="btn btn-sm btn-dark">
+                            Add to cart
+                        </a>
+                    </li>
+                    
 
                 </div>
             </div>

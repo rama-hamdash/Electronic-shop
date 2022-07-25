@@ -21,12 +21,12 @@
                     <!-- SHOP LISTING-->
                     <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
                         <div class="row g-2">
-                            @foreach ($products as $product)
+                            @foreach ($products as $p)
                                 <div class="">
-                                    <a  href="{{ route('product.interface',[$product->id])  }}">
+                                    <a  href="{{ route('product.interface',[$p->id])  }}">
                                         <div class="featured-item">
                                             <div class="position-relative">
-                                                <img src="{{ asset('storage/'.$product->image_url) }}" alt="Item 1">
+                                                <img src="{{ asset('storage/'.$p->image_url) }}" alt="Item 1">
                                                 <div class="product-overlay">
                                                     <ul class="mb-0 list-inline">
                                                         <li class="list-inline-item m-0 p-0">
@@ -36,8 +36,7 @@
                                                             </a>
                                                         </li>
                                                         <li class="list-inline-item m-0 p-0 text-light">
-                                                            <a wire:click.prevent="addToCart(1002)"
-                                                                class="btn btn-sm btn-dark">
+                                                            <a wire:click.prevent="addToBasket( {{$p->id}},1,{{$p->price}})"  class="btn btn-sm btn-dark">
                                                                 Add to cart
                                                             </a>
                                                         </li>
@@ -52,8 +51,8 @@
                                                 </div>
                                             </div>
                                             <div class="px-3 mb-2">
-                                                <h4>{{$product->name}}</h4>
-                                                <h6>SYP {{$product->price}}</h6>
+                                                <h4>{{$p->name}}</h4>
+                                                <h6>SYP {{$p->price}}</h6>
                                             </div>
                                         </div>
                                     </a>

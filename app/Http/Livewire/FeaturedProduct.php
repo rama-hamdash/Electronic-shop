@@ -22,15 +22,18 @@ class FeaturedProduct extends Component
     {
         return view('livewire.featured-product');
     }
+
     public function addToBasket($id, $qty, $price)
     {
         $this->alert('success', 'item added');
-
+        $this->alert('success', 'item added');
+        $product = Product::find($id);
         Cart::add([
             'id' => $id,
             'price' => $price,
             'quantity' => $qty,
-            'name' => "sdfgh",
+            'name' => $product->name,
+            'image_url' => $product->image_url,
         ]);
     }
 }

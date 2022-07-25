@@ -11,7 +11,7 @@
                         <h4>new collection for 2022 summer
                         </h4>
                         <div class="main-button">
-                            <a href="{{ asset('assets/#') }}">Shop Now!</a>
+                            <a href="{{ route('shop.interface') }}">Shop Now!</a>
                         </div>
                     </div>
                 </div>

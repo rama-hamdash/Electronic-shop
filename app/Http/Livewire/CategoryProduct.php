@@ -6,8 +6,12 @@ use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
 
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Darryldecode\Cart\Facades\Cartfacade as cart;
+
 class CategoryProduct extends Component
 {
+    use LivewireAlert;
 
     public $categories;
     public $products;
@@ -26,4 +30,18 @@ class CategoryProduct extends Component
     {
         return view('livewire.category-product');
     }
+    public function addToBasket($id, $qty, $price)
+    {
+        $this->alert('success', 'item added');
+        $this->alert('success', 'item added');
+        $product = Product::find($id);
+        Cart::add([
+            'id' => $id,
+            'price' => $price,
+            'quantity' => $qty,
+            'name' => $product->name,
+            'image_url' => $product->image_url,
+        ]);
+    }
+
 }

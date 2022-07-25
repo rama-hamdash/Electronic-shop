@@ -22,7 +22,10 @@ class Basket extends Component
     public function mount()
     {
         $this->cart = Cart::getcontent();
-        
+        foreach($this->cart as $i){
+            $this->total +=  $i->price * $i->quantity;
+        }
+
     }
     public function render()
     {
@@ -30,15 +33,20 @@ class Basket extends Component
     }
 
 
-    public function add_to_cart($id, $qty, $price)
+    public function add_to_cart($id, $qty, $price , $image_url)
     {
-        $this->alert('success', 'item added');
-
+       
         Cart::add([
             'id' => $id,
             'price' => $price,
             'quantity' => $qty,
+            'quantity' => $qty,
+            'image_url' =>$image_url,
         ]);
+    }
+
+    public function add($item_id){
+
     }
 
 

@@ -36,7 +36,8 @@ class SignupController extends Controller
             'active' => true,
 
         ]);
-
+        return redirect()->route('login');
+    
     }
 
 
