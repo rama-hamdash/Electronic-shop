@@ -36,7 +36,7 @@
                         <a class="border">{{$item->quantity}}</a>
                         <a wire:click.prevent="increaseQuantity('{{ $item->id }}')">+</a>
                     </div>
-                    <div class="col">SYP {{$item->price}} <span class="close"><a wire:click.prevent="removeCart({{$item->id}})" >&#10005;</a></span></div>
+                    <div class="col">SYP {{$item->price*$item->quantity}} <span class="close"><a wire:click.prevent="removeFromCart({{$item->id}})" >&#10005;</a></span></div>
                 </div>
             </div>
               @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\Modele;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class InterfaceController extends Controller
@@ -22,7 +23,14 @@ class InterfaceController extends Controller
 
     public function shop()
     {
-        $products = Product::all();
+        $products = [];
+        $m = Modele::all();
+        foreach ($m as $i) {
+            # code...
+            $products[] = $i->products[0];
+        }
+
+        // dd($products);
         return view('user.shop', compact('products'));
     }
 
@@ -30,7 +38,7 @@ class InterfaceController extends Controller
     {
         $model = $product->model;
 
-        return view('user.product', compact('model','product'));
+        return view('user.product', compact('model', 'product'));
     }
 
     public function contact()
@@ -49,10 +57,10 @@ class InterfaceController extends Controller
         return view('user.aboute');
     }
 
-    public function myorders(){
+    public function myorders()
+    {
         //$orders= Order::with('user')->paginate(10);
-        return view('user.myorders',compact('orders'));
-
+        return view('user.myorders', compact('orders'));
     }
 
     /**

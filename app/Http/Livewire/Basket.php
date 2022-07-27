@@ -55,9 +55,12 @@ class Basket extends Component
         }
     }
 
-    public function removeFromCart($rowId)
+    public function removeFromCart($id)
     {
-        $this->emit('removeFromCart', $rowId);
+        Cart::remove($id);
+        $this->cart = Cart::getcontent();
+
+        $this->emit('removeFromCart', $id);
     }
 
     public function clearAllCart()
