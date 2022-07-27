@@ -8,6 +8,7 @@ use Livewire\Component;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Darryldecode\Cart\Facades\Cartfacade as cart;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryProduct extends Component
 {
@@ -35,7 +36,7 @@ class CategoryProduct extends Component
         $this->alert('success', 'item added');
         $this->alert('success', 'item added');
         $product = Product::find($id);
-        Cart::add([
+        Cart::session(Auth::user()->id)->add([
             'id' => $id,
             'price' => $price,
             'quantity' => $qty,

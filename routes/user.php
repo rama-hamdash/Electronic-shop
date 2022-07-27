@@ -30,13 +30,14 @@ Route::get('contact us',[InterfaceController::class,'contact'])->name('contact')
 Route::get('about us',[InterfaceController::class,'aboute'])->name('aboute');
 Route::get('single_product',[InterfaceController::class,'single_product'])->name('single_product');
 
-
 //  cart routes
-Route::get('cart/get_content',[CartController::class,'list_cart'])->name('user.cart.get_content');
-Route::get('cart/add_item',[CartController::class,'add_to_cart'])->name('user.cart.add_to_cart');
-Route::get('cart/update_item',[CartController::class,'updateCart'])->name('user.cart.update_cart');
-Route::get('cart/delete_item/{item_id}',[CartController::class,'removecart'])->name('user.cart.delete_item');
-Route::get('cart/clear_cart',[CartController::class,'clearAllCart'])->name('user.cart.clear_cart');
+Route::middleware(['auth'])->group(function () {
+    Route::get('cart/get_content',[CartController::class,'list_cart'])->name('user.cart.get_content');
+    Route::get('cart/add_item',[CartController::class,'add_to_cart'])->name('user.cart.add_to_cart');
+    Route::get('cart/update_item',[CartController::class,'updateCart'])->name('user.cart.update_cart');
+    Route::get('cart/delete_item/{item_id}',[CartController::class,'removecart'])->name('user.cart.delete_item');
+    Route::get('cart/clear_cart',[CartController::class,'clearAllCart'])->name('user.cart.clear_cart');
+});
 
 
 // my orders route

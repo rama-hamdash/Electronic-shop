@@ -9,11 +9,11 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="owl-carousel owl-theme">
+                    <div class="d-flex flex-wrap owl-caro usel owl-them e">
                         {{-- go with foreach on featured products --}}
                         @foreach ($products as $p)
                             <a href="{{ route('product.interface', [$p->id]) }}">
-                                <div class="featured-item">
+                                <div class="featured-item mx-3" style="max-width: 242px">
                                     <div class="position-relative">
                                         <img src="{{ asset('storage/' . $p->image_url) }}" alt="Item 1">
                                         <div class="product-overlay">
@@ -25,9 +25,9 @@
                                                     </a>
                                                 </li>
                                                 <li class="list-inline-item m-0 p-0 text-light">
-                                                    <a wire:click.prevent="addToBasket({{$p->id}},1,{{$p->price}})" class="btn btn-sm btn-dark">
+                                                    <button wire:click.prevent="addToBasket({{$p->id}},1,{{$p->price}})" class="btn btn-sm btn-dark">
                                                         Add to cart
-                                                    </a>
+                                                    </button>
                                                 </li>
                                                 <li class="list-inline-item mr-0">
                                                     <a wire:click.prevent="$emit('showProductModalAction', '{{$p->id}}')"

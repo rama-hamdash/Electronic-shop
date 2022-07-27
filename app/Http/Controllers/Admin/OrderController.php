@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\User;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -49,7 +50,7 @@ class OrderController extends Controller
 
         $order->num=uniqid();
         $order->address=$request->address;
-        $order->total=Cart::getTotal();
+        $order->total=Cart::session(Auth::user()->id)->getTotal();
         $order->user_id= $user->id;
         $order->status=1;
         $order->long=0;
@@ -62,7 +63,7 @@ class OrderController extends Controller
         }
 
         $order->clothes()->attach($cart);
-        Cart::clear();
+        Cart::session(Auth::user()->id)->clear();
         return redirect()->back()->with('success','تمت إضافة الطلب بنجاح');
     }
 
@@ -102,7 +103,7 @@ class OrderController extends Controller
         $order = Order::findOrfail($id);
 
         $order->address = $request->address;
-        $order->total = Cart::getTotal();
+        $order->total = Cart::session(Auth::user()->id)->getTotal();
         $order->status = 1;
 
         $order->save();
@@ -116,9 +117,9 @@ class OrderController extends Controller
 
        
 
-        $order->clothes()->sync($cart);
+        $order->products()->sync($cart);
 
-        Cart::clear();
+        Cart::session(Auth::user()->id)->clear();
 
         return redirect()->back()->with('success','تم تعديل بيانات الطلب بنجاح');
     }
@@ -138,11 +139,11 @@ class OrderController extends Controller
 
         $order =Order::findOrfail($request->order_id);
 
-        Cart::clear();
+        Cart::session(Auth::user()->id)->clear();
 
         foreach($order->products as $product){
 
-            Cart::add([
+            Cart::session(Auth::user()->id)->add([
                 'id' => $product->id,
               //  'name' => $product->name,
                 'price' => $product->price,

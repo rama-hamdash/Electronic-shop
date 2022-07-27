@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Darryldecode\Cart\Facades\Cartfacade as cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -16,7 +17,7 @@ class CartController extends Controller
      */
     public function  list_cart()
     {
-        $cart= Cart::getcontent();
+        $cart= Cart::session(Auth::user()->id)->getcontent();
         return view('user.basket',compact('cart'));
     }
 

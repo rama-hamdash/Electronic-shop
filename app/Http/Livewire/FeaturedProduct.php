@@ -6,7 +6,7 @@ use App\Models\Product;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Darryldecode\Cart\Facades\Cartfacade as Cart;
-
+use Illuminate\Support\Facades\Auth;
 
 class FeaturedProduct extends Component
 {
@@ -20,19 +20,19 @@ class FeaturedProduct extends Component
     }
     public function render()
     {
-        
         return view('livewire.featured-product');
     }
     
     public function addToBasket($id, $qty, $price)
     {
         $product = Product::find($id);
-        Cart::add([
+        Cart::session(Auth::user()->id)->add([
             'id' => $id,
             'price' => $price,
             'quantity' => $qty,
             'name' => $product->name,
         ])->associate(Product::class);
         $this->alert('success', 'item added');
+
     }
 }

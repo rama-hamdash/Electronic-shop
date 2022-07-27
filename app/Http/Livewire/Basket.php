@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Darryldecode\Cart\Cart as CartCart;
 use Darryldecode\Cart\Facades\Cartfacade as cart;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
@@ -21,7 +22,7 @@ class Basket extends Component
     ];
     public function mount()
     {
-        $this->cart = Cart::getcontent();
+        $this->cart = Cart::session(Auth::user()->id)->getcontent();
         foreach ($this->cart as $i) {
             $this->total +=  $i->price * $i->quantity;
         }
@@ -34,38 +35,39 @@ class Basket extends Component
 
     public function decreaseQuantity($id)
     {
-        if ($qty = Cart::get($id)->quantity > 1) {
+        if ($qty = Cart::session(Auth::user()->id)->get($id)->quantity > 1) {
             // $this->quantity = $this->quantity - 1;
             $qty = $qty - 2;
-            Cart::update($id, ['quantity' => $qty]);
-            $this->cart = Cart::getcontent();
+            Cart::session(Auth::user()->id)->update($id, ['quantity' => $qty]);
+            $this->cart = Cart::session(Auth::user()->id)->getcontent();
             $this->emit('updateCart');
         }
     }
 
     public function increaseQuantity($id)
     {
-        if ($qty = Cart::get($id)->quantity > 0) {
+        if ($qty = Cart::session(Auth::user()->id)->get($id)->quantity > 0) {
 
-            Cart::update($id, [
+            Cart::session(Auth::user()->id)->update($id, [
                 'quantity' => $qty
             ]);
-            $this->cart = Cart::getcontent();
+            $this->cart = Cart::session(Auth::user()->id)->getcontent();
             $this->emit('updateCart');
         }
     }
 
     public function removeFromCart($id)
     {
-        Cart::remove($id);
-        $this->cart = Cart::getcontent();
+        Cart::session(Auth::user()->id)->remove($id);
+        $this->cart = Cart::session(Auth::user()->id)->getcontent();
 
         $this->emit('removeFromCart', $id);
     }
 
     public function clearAllCart()
     {
-        Cart::clear();
+        Cart::session(Auth::user()->id)->clear();
+        $this->cart = Cart::session(Auth::user()->id)->getcontent();
         $this->alert('success', 'item removed');
     }
 }
