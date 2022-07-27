@@ -62,7 +62,7 @@ class OrderController extends Controller
           $cart[$item->id]=['quantity' => $item->quantity];
         }
 
-        $order->clothes()->attach($cart);
+        $order->products()->attach($cart);
         Cart::session(Auth::user()->id)->clear();
         return redirect()->back()->with('success','تمت إضافة الطلب بنجاح');
     }
