@@ -30,7 +30,7 @@
                                                     </a>
                                                 </li>
                                                 <li class="list-inline-item mr-0">
-                                                    <a wire:click.prevent="$emit('showProductModalAction', 'short-hoody')"
+                                                    <a wire:click.prevent="$emit('showProductModalAction', '{{$p->id}}')"
                                                         class="btn btn-sm btn-outline-dark" data-target="#productView"
                                                         data-toggle="modal">
                                                         <i class="fas fa-expand"></i>

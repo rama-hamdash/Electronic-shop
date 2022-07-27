@@ -6,9 +6,9 @@
     {{--  --}}
 
     <div>
-        <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex justify-content-end align-items-center mx-4 mb-4">
             <div>
-                <h4><button wire:click="clearAllCart" class="btn btn-light text-danger"><i
+                <h4><button wire:click="clearAllCart" class="btn btn-dark bg-light text-dark "><i
                             class="fas fa-trash-alt"></i></button></h4>
             </div>
         </div>
@@ -27,7 +27,7 @@
               <div class="row border-top border-bottom">
                 <div class="row main align-items-center">
                     <div class="col-2">
-                      <img class="img-fluid" src= "{{ asset('storage/' . $item->image_url) }}"></div>
+                      <img class="img-fluid" src= "{{ asset('storage/' . $item->model->image_url) }}"></div>
                     <div class="col">
                         <div class="row text-muted">{{$item->name}}</div>
                         <div class="row"></div>

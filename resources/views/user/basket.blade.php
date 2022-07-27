@@ -5,7 +5,7 @@
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
             navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
-               
+
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
 
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
@@ -56,25 +56,23 @@
         @section('styles')
             <style>
                 /* body {
-                    background: #ddd;
-                    min-height: 100vh;
-                    vertical-align: middle;
-                    display: flex;
-                    font-family: sans-serif;
-                    font-size: 0.8rem;
-                    font-weight: bold;
-                } */
+                            background: #ddd;
+                            min-height: 100vh;
+                            vertical-align: middle;
+                            display: flex;
+                            font-family: sans-serif;
+                            font-size: 0.8rem;
+                            font-weight: bold;
+                        } */
 
                 .title {
                     margin-bottom: 5vh;
                 }
 
                 .card {
-                    margin: auto;
+                    margin: 1.25rem;
                     max-width: 950px;
-                    width: 90%;
-                    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                    border-radius: 1rem;
+                    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.05);
                     border: transparent;
                 }
 
@@ -87,22 +85,17 @@
                 .cart {
                     background-color: #fff;
                     padding: 4vh 5vh;
-                    border-bottom-left-radius: 1rem;
-                    border-top-left-radius: 1rem;
                 }
 
                 @media(max-width:767px) {
                     .cart {
                         padding: 4vh;
                         border-bottom-left-radius: unset;
-                        border-top-right-radius: 1rem;
                     }
                 }
 
                 .summary {
                     background-color: #ddd;
-                    border-top-right-radius: 1rem;
-                    border-bottom-right-radius: 1rem;
                     padding: 4vh;
                     color: rgb(65, 65, 65);
                 }

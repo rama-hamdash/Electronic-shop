@@ -18,13 +18,13 @@ class CategoryProduct extends Component
 
     public function selectCategory($id)
     {
-        $this->products = Product::whereRelation('model','category_id', $id)->inRandomOrder()->limit(8)->get();
+        $this->products = Product::whereRelation('model', 'category_id', $id)->inRandomOrder()->limit(8)->get();
     }
 
     public function mount()
     {
         $this->categories = Category::inRandomOrder()->whereHas('models', operator: '>', count: 0)->limit(3)->get();
-        $this->products = Product::whereRelation('model','category_id', $this->categories[0]->id)->inRandomOrder()->limit(8)->get();
+        $this->products = Product::whereRelation('model', 'category_id', $this->categories[0]->id)->inRandomOrder()->limit(8)->get();
     }
     public function render()
     {
@@ -40,8 +40,6 @@ class CategoryProduct extends Component
             'price' => $price,
             'quantity' => $qty,
             'name' => $product->name,
-            'image_url' => $product->image_url,
-        ]);
+        ])->associate(Product::class);
     }
-
 }

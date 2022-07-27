@@ -21,6 +21,34 @@
     <link rel="stylesheet" href="{{ asset('assets/css/tooplate-main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
     <style>
+        .product-view {
+            min-height: 20rem;
+        }
+
+        .quantity {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .btn-outline-dark:hover {
+            color: white!important
+        }
+
+        .quantity input {
+            width: 2rem;
+            text-align: center;
+        }
+
+        .quantity button {
+            background: none;
+            border: none;
+            width: 1rem;
+            outline: none;
+        }
+
         .ps {
             overflow: hidden !important;
             overflow-anchor: none;
@@ -75,8 +103,8 @@
             height: 22rem;
             object-fit: cover;
         }
-        </style>
-        @yield('styles')
+    </style>
+    @yield('styles')
     @livewireStyles
 </head>
 
@@ -146,17 +174,17 @@
 
     <div class="fixed-plugin">
         <a href="" style="bottom:6rem;"
-            class="relative color-light fixed-plugin-button text-dark position-fixed px-3 py-2 bg-secondary">
-            <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-primary">0
+            class="relative fixed-plugin-button text-dark position-fixed bg-light px-3 py-2 border border-dark">
+            <span class="position-absolute text-light top-0 end-0 translate-middle badge badge-dark rounded-circle bg-dark" style="background-color: #1d2124!important">0
             </span>
 
-            <i class="fa fa-heart-o py-2 " style="color:white;">
+            <i class="fa fa-heart-o py-2 " >
             </i>
 
         </a>
         <a href="{{ route('user.cart.get_content') }}"
-            class="relative text-light fixed-plugin-button text-dark position-fixed px-3 py-2">
-            <span class="position-absolute text-light top-0 end-0 translate-middle badge rounded-circle bg-secondary">0
+            class="relative text-light fixed-plugin-button position-fixed px-3 py-2" style="background-color: #1d2124!important">
+            <span class="position-absolute text-dark top-0 end-0 translate-middle badge rounded-circle bg-dark">0
             </span>
 
             <i class="fas fa-shopping-cart py-2">
@@ -211,6 +239,7 @@
         </div>
     </div>
     <!-- Sub Footer Ends Here -->
+    <livewire:product-modal-shared />
 
 
     <!-- Bootstrap core JavaScript -->
@@ -235,7 +264,7 @@
     </script>
     @livewireScripts
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+
     <x-livewire-alert::scripts />
 
 </body>
