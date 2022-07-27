@@ -42,6 +42,7 @@ class Basket extends Component
             $this->cart = Cart::session(Auth::user()->id)->getcontent();
             $this->emit('updateCart');
         }
+        
     }
 
     public function increaseQuantity($id)

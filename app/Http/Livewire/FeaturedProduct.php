@@ -22,7 +22,7 @@ class FeaturedProduct extends Component
     {
         return view('livewire.featured-product');
     }
-    
+
     public function addToBasket($id, $qty, $price)
     {
         $product = Product::find($id);
@@ -33,6 +33,15 @@ class FeaturedProduct extends Component
             'name' => $product->name,
         ])->associate(Product::class);
         $this->alert('success', 'item added');
-
+    }
+    public function addToWishList($id)
+    {
+        $product = Product::find($id);
+        // Cart::instance('wishlist')->session(Auth::user()->id)->add([
+        //     'id' => $id,
+        //     'price' => $product->price,
+        //     'name' => $product->name,
+        // ])->associate(Product::class);
+        $this->alert('success', 'item added to wishlist');
     }
 }

@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product as modelProduct;
 use Livewire\Component;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 use Darryldecode\Cart\Facades\Cartfacade as cart;
+use Illuminate\Support\Facades\Auth;
+
 class Product extends Component
 {
     use LivewireAlert;
@@ -42,17 +45,16 @@ class Product extends Component
     {
         return view('livewire.product');
     }
+
     public function addToBasket($id, $qty, $price)
     {
         $this->alert('success', 'item added');
-        $this->alert('success', 'item added');
-        $product = Product::find($id);
-        Cart::add([
+        $product = modelProduct::find($id);
+        Cart::session(Auth::user()->id)->add([
             'id' => $id,
             'price' => $price,
             'quantity' => $qty,
             'name' => $product->name,
-            'image_url' => $product->image_url,
-        ]);
+        ])->associate(modelProduct::class);
     }
 }

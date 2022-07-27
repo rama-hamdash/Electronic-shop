@@ -19,7 +19,7 @@
                                         <div class="product-overlay">
                                             <ul class="mb-0 list-inline">
                                                 <li class="list-inline-item m-0 p-0">
-                                                    <a wire:click.prevent="addToWishList(1002)"
+                                                    <a wire:click.prevent="addToWishList({{$p->id}})"
                                                         class="btn btn-sm btn-outline-dark">
                                                         <i class="far fa-heart"></i>
                                                     </a>
