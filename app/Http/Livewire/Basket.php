@@ -63,6 +63,8 @@ class Basket extends Component
         $this->cart = Cart::session(Auth::user()->id)->getcontent();
 
         $this->emit('removeFromCart', $id);
+        
+        $this->alert('success', 'item removed');
     }
 
     public function clearAllCart()
