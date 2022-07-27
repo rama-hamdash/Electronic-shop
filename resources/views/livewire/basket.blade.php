@@ -54,6 +54,7 @@
                   <p>SHIPPING</p>
                   <select><option class="text-muted">SHIPPING000</option></select>
                  
+                  <button type="button" class="btn btn-dark">CHECK OUT</button>
               </form>
              
           </div>
