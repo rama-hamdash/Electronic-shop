@@ -23,7 +23,6 @@
                   </div>
               </div>    
               @foreach($cart as $item)
-
               <div class="row border-top border-bottom">
                 <div class="row main align-items-center">
                     <div class="col-2">
@@ -33,9 +32,9 @@
                         <div class="row"></div>
                     </div>
                     <div class="col">
-                        <a href="#">-</a>
-                        <a href="#" class="border">1</a>
-                        <a href="#">+</a>
+                        <a wire:click.prevent="decreaseQuantity('{{ $item->id }}')">-</a>
+                        <a class="border">{{$item->quantity}}</a>
+                        <a wire:click.prevent="increaseQuantity('{{ $item->id }}')">+</a>
                     </div>
                     <div class="col">SYP {{$item->price}} <span class="close"><a wire:click.prevent="removeCart({{$item->id}})" >&#10005;</a></span></div>
                 </div>

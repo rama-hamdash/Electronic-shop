@@ -22,10 +22,9 @@ class Basket extends Component
     public function mount()
     {
         $this->cart = Cart::getcontent();
-        foreach($this->cart as $i){
+        foreach ($this->cart as $i) {
             $this->total +=  $i->price * $i->quantity;
         }
-
     }
     public function render()
     {
@@ -33,28 +32,32 @@ class Basket extends Component
     }
 
 
-    public function add_to_cart($id, $qty, $price , $image_url)
+    public function decreaseQuantity($id)
     {
-       
-        Cart::add([
-            'id' => $id,
-            'price' => $price,
-            'quantity' => $qty,
-            'quantity' => $qty,
-            'image_url' =>$image_url,
-        ]);
+        if ($qty = Cart::get($id)->quantity > 1) {
+            // $this->quantity = $this->quantity - 1;
+            $qty = $qty - 1;
+            Cart::update($id, ['quantity' => $qty]);
+            $this->cart = Cart::getcontent();
+            $this->emit('updateCart');
+        }
     }
 
-    public function add($item_id){
+    public function increaseQuantity($id)
+    {
+        if ($qty = Cart::get($id)->quantity > 0) {
 
+            Cart::update($id, [
+                'quantity' => $qty
+            ]);
+            $this->cart = Cart::getcontent();
+            $this->emit('updateCart');
+        }
     }
 
-
-
-    public function removeCart($item_id)
+    public function removeFromCart($rowId)
     {
-        Cart::remove($item_id);
-        $this->alert('success', 'item removed');
+        $this->emit('removeFromCart', $rowId);
     }
 
     public function clearAllCart()
