@@ -36,7 +36,7 @@ class Basket extends Component
     {
         if ($qty = Cart::get($id)->quantity > 1) {
             // $this->quantity = $this->quantity - 1;
-            $qty = $qty - 1;
+            $qty = $qty - 2;
             Cart::update($id, ['quantity' => $qty]);
             $this->cart = Cart::getcontent();
             $this->emit('updateCart');
