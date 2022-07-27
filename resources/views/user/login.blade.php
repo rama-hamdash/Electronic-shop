@@ -13,11 +13,15 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                
+                   
                 </div>
                 <div class="col-md-6">
                     <div class="right-content">
-                        <div class="container">
+                        <div class="container"> @if (session('success'))
+                    <div class="alert alert-info" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
                             <form id="contact" action="{{route('authenticate')}}" method="post">
                                 @csrf
                                 <div class="row">

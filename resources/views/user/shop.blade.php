@@ -29,7 +29,7 @@
             @foreach ($products as $product)
                 <div id="1" class="item new col">
                     <a href="{{ route('product.interface', [$product->id]) }}">
-                        <div class="featured-item">
+                        <div class="featured-item" style="max-width: 242px">
                             <div class="position-relative">
                                 <img src="{{ asset('storage/' . $product->image_url) }}" alt="Item 1">
                                 <div class="product-overlay">
