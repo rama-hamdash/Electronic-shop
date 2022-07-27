@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Modele;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -59,7 +60,7 @@ class InterfaceController extends Controller
 
     public function myorders()
     {
-        //$orders= Order::with('user')->paginate(10);
+        $orders= Order::with('user')->paginate(10);
         return view('user.myorders', compact('orders'));
     }
 

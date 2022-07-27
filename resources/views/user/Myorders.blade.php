@@ -5,11 +5,7 @@
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
     <div class="container-fluid py-1 px-3">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-          <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" href="javascript:;">لوحة التحكم </a></li>
-          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">الأطباق</li>
-        </ol>
-       
+        
       </nav>
       <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
         
@@ -43,7 +39,6 @@
                   <th scope="col">الرقم</th>
                   <th scope="col">الاسم</th>
                   <th scope="col">السعر</th>
-                  <th scope="col">الحالة </th>
                    <th scope="col">عرض</th>
                   <th scope="col">تعديل</th>
                 </tr>
@@ -52,18 +47,7 @@
                   <th scope="row">{{ $order->id }}</th>
                   <td>{{  $order->user->first_name }}  {{  $order->user->first_name }}</td>
                   <td>{{ $order->cost  }}</td>
-                  @switch ($order->status)
-                  @case(1)
-                  <td>  complete</td>
-                  @break
-                  @case(2)
-                  <td>  incomplete</td>
-                  @break
-                  @case(3)
-                  <td> retreived</td>
-                  @break
-
-                  @endswitch
+                 
 
                    <td><a class="text-info" href="{{route('admin.orders.show',[$order->id])}}"><i class="fas fa-eye"></i></a></td>
                   <td><a class="text-warning" href="{{route('admin.orders.edit',[$order->id])}}"><i class="fas fa-edit"></i></a></td>
