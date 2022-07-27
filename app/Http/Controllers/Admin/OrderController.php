@@ -57,14 +57,20 @@ class OrderController extends Controller
         $order->lat=0;
         $order->save();
         $cart=[];
-        foreach(Cart::getcontent() as $id => $item){
+        foreach( Cart::session(Auth::user()->id)->getcontent() as $item){
 
-          $cart[$item->id]=['quantity' => $item->quantity];
+            $orderproducts[] = [
+                'order_id' => $order->id ,
+                'product_id' => $item->id,
+                'quantity' => $item['qty']
+
+            ];
+
         }
 
-        $order->products()->attach($cart);
-        Cart::session(Auth::user()->id)->clear();
-        return redirect()->back()->with('success','تمت إضافة الطلب بنجاح');
+        //$order->products()->attach($cart);
+        //Cart::session(Auth::user()->id)->clear();
+        return redirect()->back()->with('success','Request added successfully');
     }
 
     /**

@@ -78,8 +78,8 @@ Route::resource('models', ModelController::class)->names([
 
 //orders routes
 Route::get('orders/edit_status/{order_id}', [OrderController::class, 'edit_status'])->name('admin.orders.edit_status');
-Route::get('orders/assign_delivery_boy/{order_id}', [DeliveryController::class, 'assign_delivery_boy_form'])->name('admin.orders.assign_delivery_boy_form');
-Route::put('orders/assign_delivery_boy', [DeliveryController::class, 'assign_delivery_boy'])->name('admin.orders.assign_delivery_boy');
+//Route::get('orders/assign_delivery_boy/{order_id}', [DeliveryController::class, 'assign_delivery_boy_form'])->name('admin.orders.assign_delivery_boy_form');
+//Route::put('orders/assign_delivery_boy', [DeliveryController::class, 'assign_delivery_boy'])->name('admin.orders.assign_delivery_boy');
 Route::put('orders/update_status', [OrderController::class, 'update_status'])->name('admin.orders.update_status');
 Route::get('orders/add_order_items_to_basket', [OrderController::class, 'add_order_items_to_basket'])->name('admin.orders.add_order_items_to_basket');
 Route::resource('orders', OrderController::class)->names([
