@@ -8,6 +8,8 @@ use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class FeaturedProduct extends Component
 {
     use LivewireAlert;
@@ -23,6 +25,12 @@ class FeaturedProduct extends Component
         return view('livewire.featured-product');
     }
 
+
+    if (Auth::user()->role == 'null') {
+        return 'you have to login first...';
+    } else
+        return redirect()->route('cart/get_content');
+}
     public function addToBasket($id, $qty, $price)
     {
         $product = Product::whereId($id)->firstOrFail();

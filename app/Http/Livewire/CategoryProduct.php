@@ -33,6 +33,8 @@ class CategoryProduct extends Component
         return view('livewire.category-product');
     }
 
+
+    
     public function addToBasket($id, $qty, $price)
     {
         $product = Product::whereId($id)->firstOrFail();
