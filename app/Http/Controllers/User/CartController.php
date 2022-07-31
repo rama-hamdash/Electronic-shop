@@ -4,7 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use Darryldecode\Cart\Facades\Cartfacade as cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,10 +17,13 @@ class CartController extends Controller
      */
     public function  list_cart()
     {
-        $cart= Cart::session(Auth::user()->id)->getcontent();
-        return view('user.basket',compact('cart'));
+        $cart = Cart::getcontent();
+        return view('user.basket', compact('cart'));
     }
-
+    public function wishlist()
+    {
+        return view('user.wishlist');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -29,8 +32,8 @@ class CartController extends Controller
     public function add_to_cart(Request $request)
     {
         $request->validate([
-            'quantity' => ['required','numeric','integer','min:1'],
-            'product_id' => ['required','numeric']
+            'quantity' => ['required', 'numeric', 'integer', 'min:1'],
+            'product_id' => ['required', 'numeric']
         ]);
 
         $product = Product::findOrfail($request->product_id);
@@ -41,7 +44,7 @@ class CartController extends Controller
             'quantity' => $request->quantity,
         ]);
 
-        return redirect()->back()->with('success','تمت إضافة  بنجاح');
+        return redirect()->back()->with('success', 'تمت إضافة  بنجاح');
     }
 
     /**
@@ -53,8 +56,8 @@ class CartController extends Controller
     public function updateCart(Request $request)
     {
         $request->validate([
-            'quantity' => ['required','numeric','integer','min:1'],
-            'product_id' => ['required','numeric']
+            'quantity' => ['required', 'numeric', 'integer', 'min:1'],
+            'product_id' => ['required', 'numeric']
         ]);
 
         $product = Product::findOrfail($request->product_id);
@@ -69,7 +72,7 @@ class CartController extends Controller
             ]
         );
 
-        return redirect()->back()->with('success','تم تعديل السلة بنجاح');
+        return redirect()->back()->with('success', 'تم تعديل السلة بنجاح');
     }
 
     /**
@@ -81,8 +84,8 @@ class CartController extends Controller
     public function removeCart($item_id)
     {
         Cart::remove($item_id);
-     
-        return redirect()->back()->with('success','تم الحذف  من السلة بنجاح');
+
+        return redirect()->back()->with('success', 'تم الحذف  من السلة بنجاح');
     }
 
     /**
@@ -95,7 +98,7 @@ class CartController extends Controller
     {
         Cart::clear();
 
-        return redirect()->back()->with('success','تم إفراغ السلة بنجاح');
+        return redirect()->back()->with('success', 'تم إفراغ السلة بنجاح');
     }
 
     /**

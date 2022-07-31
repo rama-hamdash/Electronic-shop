@@ -3,11 +3,11 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product as modelProduct;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
-use Darryldecode\Cart\Facades\Cartfacade as cart;
 use Illuminate\Support\Facades\Auth;
 
 class Product extends Component
@@ -26,7 +26,7 @@ class Product extends Component
 
         $this->getSizes();
     }
-    
+
     public function getSizes()
     {
         $s = [];
@@ -50,11 +50,26 @@ class Product extends Component
     {
         $this->alert('success', 'item added');
         $product = modelProduct::find($id);
-        Cart::session(Auth::user()->id)->add([
+        Cart::add([
             'id' => $id,
             'price' => $price,
             'quantity' => $qty,
             'name' => $product->name,
         ])->associate(modelProduct::class);
+    }
+
+    public function addToWishList($id)
+    {
+        $product = modelProduct::whereId($id)->firstOrFail();
+        $duplicates = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($product) {
+            return $cartItem->id === $product->id;
+        });
+        if ($duplicates->isNotEmpty()) {
+            $this->alert('error', 'Product already exist!');
+        } else {
+            Cart::instance('wishlist')->add($product->id, $product->name, 1, $product->price)->associate(modelProduct::class);
+            $this->emit('updateCart');
+            $this->alert('success', 'Product added in your wishlist cart successfully.');
+        }
     }
 }

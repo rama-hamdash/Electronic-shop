@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
-use Darryldecode\Cart\Facades\Cartfacade as cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 

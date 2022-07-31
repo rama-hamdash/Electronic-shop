@@ -34,7 +34,7 @@
         }
 
         .btn-outline-dark:hover {
-            color: white!important
+            color: white !important
         }
 
         .quantity input {
@@ -105,7 +105,8 @@
         }
     </style>
     @yield('styles')
-    @livewireStyles
+       <livewire:styles />
+
 </head>
 
 <body>
@@ -172,26 +173,7 @@
 
     @yield('content')
 
-    <div class="fixed-plugin">
-        <a href="" style="bottom:6rem;"
-            class="relative fixed-plugin-button text-dark position-fixed bg-light px-3 py-2 border border-dark">
-            <span class="position-absolute text-light top-0 end-0 translate-middle badge badge-dark rounded-circle bg-dark" style="background-color: #1d2124!important">0
-            </span>
-
-            <i class="fa fa-heart-o py-2 " >
-            </i>
-
-        </a>
-        <a href="{{ route('user.cart.get_content') }}"
-            class="relative text-light fixed-plugin-button position-fixed px-3 py-2" style="background-color: #1d2124!important">
-            <span class="position-absolute text-dark top-0 end-0 translate-middle badge rounded-circle bg-dark">0
-            </span>
-
-            <i class="fas fa-shopping-cart py-2">
-            </i>
-
-        </a>
-    </div>
+   <livewire:carts />
     <!-- Footer Starts Here -->
     <div class="footer">
         <div class="container">
@@ -241,6 +223,7 @@
     <!-- Sub Footer Ends Here -->
     <livewire:product-modal-shared />
 
+    <livewire:scripts />
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
@@ -262,7 +245,6 @@
             }
         }
     </script>
-    @livewireScripts
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <x-livewire-alert::scripts />

@@ -56,14 +56,14 @@
         @section('styles')
             <style>
                 /* body {
-                            background: #ddd;
-                            min-height: 100vh;
-                            vertical-align: middle;
-                            display: flex;
-                            font-family: sans-serif;
-                            font-size: 0.8rem;
-                            font-weight: bold;
-                        } */
+                                    background: #ddd;
+                                    min-height: 100vh;
+                                    vertical-align: middle;
+                                    display: flex;
+                                    font-family: sans-serif;
+                                    font-size: 0.8rem;
+                                    font-weight: bold;
+                                } */
 
                 .title {
                     margin-bottom: 5vh;

@@ -7,7 +7,7 @@ use App\Http\Requests\OrderRequest;
 use App\Http\Requests\OrderStatusRequest;
 use App\Models\Order;
 use App\Models\User;
-use Darryldecode\Cart\Facades\CartFacade as Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,14 +50,14 @@ class OrderController extends Controller
 
         $order->num=uniqid();
         $order->address=$request->address;
-        $order->total=Cart::session(Auth::user()->id)->getTotal();
+        $order->total=Cart::getTotal();
         $order->user_id= $user->id;
         $order->status=1;
         $order->long=0;
         $order->lat=0;
         $order->save();
         $cart=[];
-        foreach( Cart::session(Auth::user()->id)->getcontent() as $item){
+        foreach( Cart::getcontent() as $item){
 
             $orderproducts[] = [
                 'order_id' => $order->id ,
@@ -69,7 +69,7 @@ class OrderController extends Controller
         }
 
         //$order->products()->attach($cart);
-        //Cart::session(Auth::user()->id)->clear();
+        //Cart::clear();
         return redirect()->back()->with('success','Request added successfully');
     }
 
@@ -109,7 +109,7 @@ class OrderController extends Controller
         $order = Order::findOrfail($id);
 
         $order->address = $request->address;
-        $order->total = Cart::session(Auth::user()->id)->getTotal();
+        $order->total = Cart::getTotal();
         $order->status = 1;
 
         $order->save();
@@ -125,7 +125,7 @@ class OrderController extends Controller
 
         $order->products()->sync($cart);
 
-        Cart::session(Auth::user()->id)->clear();
+        Cart::clear();
 
         return redirect()->back()->with('success','تم تعديل بيانات الطلب بنجاح');
     }
@@ -145,11 +145,11 @@ class OrderController extends Controller
 
         $order =Order::findOrfail($request->order_id);
 
-        Cart::session(Auth::user()->id)->clear();
+        Cart::clear();
 
         foreach($order->products as $product){
 
-            Cart::session(Auth::user()->id)->add([
+            Cart::add([
                 'id' => $product->id,
               //  'name' => $product->name,
                 'price' => $product->price,

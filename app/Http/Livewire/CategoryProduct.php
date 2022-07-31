@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Darryldecode\Cart\Facades\Cartfacade as cart;
 use Illuminate\Support\Facades\Auth;
 
 class CategoryProduct extends Component
@@ -27,20 +27,37 @@ class CategoryProduct extends Component
         $this->categories = Category::inRandomOrder()->whereHas('models', operator: '>', count: 0)->limit(3)->get();
         $this->products = Product::whereRelation('model', 'category_id', $this->categories[0]->id)->inRandomOrder()->limit(8)->get();
     }
+
     public function render()
     {
         return view('livewire.category-product');
     }
+
     public function addToBasket($id, $qty, $price)
     {
         $this->alert('success', 'item added');
         $this->alert('success', 'item added');
         $product = Product::find($id);
-        Cart::session(Auth::user()->id)->add([
+        Cart::add([
             'id' => $id,
             'price' => $price,
             'quantity' => $qty,
             'name' => $product->name,
         ])->associate(Product::class);
+    }
+    
+    public function addToWishList($id)
+    {
+        $product = Product::whereId($id)->firstOrFail();
+        $duplicates = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($product) {
+            return $cartItem->id === $product->id;
+        });
+        if ($duplicates->isNotEmpty()) {
+            $this->alert('error', 'Product already exist!');
+        } else {
+            Cart::instance('wishlist')->add($product->id, $product->name, 1, $product->price)->associate(Product::class);
+            $this->emit('updateCart');
+            $this->alert('success', 'Product added in your wishlist cart successfully.');
+        }
     }
 }

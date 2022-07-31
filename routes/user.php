@@ -31,6 +31,7 @@ Route::get('single_product',[InterfaceController::class,'single_product'])->name
 
 //  cart routes
 Route::middleware(['auth'])->group(function () {
+    Route::get('wishlist',[CartController::class,'wishlist'])->name('user.wishlist');
     Route::get('cart/get_content',[CartController::class,'list_cart'])->name('user.cart.get_content');
     Route::get('cart/add_item',[CartController::class,'add_to_cart'])->name('user.cart.add_to_cart');
     Route::get('cart/update_item',[CartController::class,'updateCart'])->name('user.cart.update_cart');
