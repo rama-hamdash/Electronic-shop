@@ -2,8 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use Darryldecode\Cart\Cart as CartCart;
-use Darryldecode\Cart\Facades\Cartfacade as cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;

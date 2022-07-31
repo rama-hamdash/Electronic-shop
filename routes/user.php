@@ -5,7 +5,6 @@ use App\Http\Controllers\user\CartController;
 use App\Http\Controllers\user\InterfaceController;
 use App\Http\Controllers\user\LoginController;
 use App\Http\Controllers\user\SignupController;
-use Darryldecode\Cart\CartCollection;
 use Illuminate\Support\Facades\Route;
 
 /*
