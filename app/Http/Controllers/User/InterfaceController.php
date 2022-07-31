@@ -4,9 +4,11 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Modele;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -37,17 +39,28 @@ class InterfaceController extends Controller
         return view('user.shop', compact('products'));
     }
 
-    public function byCategory(Category $cat)
+    public function byCategory(Request $request, Category $cat)
     {
+
+        $sizes = Size::all();
+        $colors = Color::all();
         $products = [];
         $m = Modele::where('category_id', $cat->id)->get();
         foreach ($m as $i) {
             if (count($i->products) > 0)
-                $products[] = $i->products[0];
+                if ($s = $request->query('size')) {
+                    $p = $i->products->where('size_id', $s)->first();
+                    if ($p) $products[] = $p;
+                } elseif ($c = $request->query('color')) {
+                    $p = $i->products->where('color_id', $c)->first();
+                    if ($p) $products[] = $p;
+                } else
+                    $products[] = $i->products[0];
         }
         $categories = Category::all();
-        return view('user.search', compact(['products', 'categories']));
+        return view('user.search', compact(['products', 'categories', 'sizes', 'colors']));
     }
+
 
     public function product(Product $product)
     {
