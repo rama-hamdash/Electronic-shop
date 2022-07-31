@@ -60,7 +60,7 @@
                     </select>
 
                     <div class="input-group input-group-outline my-3">
-                        <label class="form-label">ADDress</label>
+                        <label class="form-label">ADDRESS</label>
                         <input type="number" name="address" class="form-control">
                     </div>
 
