@@ -59,6 +59,11 @@
                         <option class="text-muted">SHIPPING000</option>
                     </select>
 
+                    <div class="input-group input-group-outline my-3">
+                        <label class="form-label">ADDress</label>
+                        <input type="number" name="address" class="form-control">
+                    </div>
+
                     <button type="button" class="btn btn-dark">CHECK OUT</button>
                 </form>
 
