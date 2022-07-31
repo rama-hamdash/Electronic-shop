@@ -21,7 +21,8 @@ class Basket extends Component
     ];
     public function mount()
     {
-        $this->cart = Cart::getcontent();
+
+        $this->cart = Cart::content();
         foreach ($this->cart as $i) {
             $this->total +=  $i->price * $i->quantity;
         }
@@ -32,44 +33,44 @@ class Basket extends Component
     }
 
 
-    public function decreaseQuantity($id)
+    public function decreaseQuantity($rowId)
     {
-        if ($qty = Cart::get($id)->quantity > 1) {
-            // $this->quantity = $this->quantity - 1;
-            $qty = $qty - 2;
-            Cart::update($id, ['quantity' => $qty]);
-            $this->cart = Cart::getcontent();
+        $item_quantity = Cart::get($rowId)->qty;
+        if ($item_quantity > 0) {
+            $item_quantity = $item_quantity - 1;
+            Cart::instance('default')->update($rowId, $item_quantity);
             $this->emit('updateCart');
-        }
-        
+        } else
+            Cart::remove($rowId);
+        $this->cart = Cart::content();
     }
 
-    public function increaseQuantity($id)
+    public function increaseQuantity($rowId)
     {
-        if ($qty = Cart::get($id)->quantity > 0) {
+        $item_quantity = Cart::get($rowId)->qty;
 
-            Cart::update($id, [
-                'quantity' => $qty
-            ]);
-            $this->cart = Cart::getcontent();
+        if ($item_quantity > 0) {
+            $item_quantity = $item_quantity + 1;
+            Cart::instance('default')->update($rowId, $item_quantity);
             $this->emit('updateCart');
         }
+        $this->cart = Cart::content();
     }
 
     public function removeFromCart($id)
     {
         Cart::remove($id);
-        $this->cart = Cart::getcontent();
+        $this->cart = Cart::content();
 
         $this->emit('removeFromCart', $id);
-        
+
         $this->alert('success', 'item removed');
     }
 
     public function clearAllCart()
     {
         Cart::clear();
-        $this->cart = Cart::getcontent();
+        $this->cart = Cart::content();
         $this->alert('success', 'item removed');
     }
 }

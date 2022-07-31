@@ -35,15 +35,17 @@ class CategoryProduct extends Component
 
     public function addToBasket($id, $qty, $price)
     {
-        $this->alert('success', 'item added');
-        $this->alert('success', 'item added');
-        $product = Product::find($id);
-        Cart::add([
-            'id' => $id,
-            'price' => $price,
-            'quantity' => $qty,
-            'name' => $product->name,
-        ])->associate(Product::class);
+        $product = Product::whereId($id)->firstOrFail();
+        $duplicates = Cart::instance('default')->search(function ($cartItem, $rowId) use ($product) {
+            return $cartItem->id === $product->id;
+        });
+        if ($duplicates->isNotEmpty()) {
+            $this->alert('error', 'Product already exist!');
+        } else {
+            Cart::instance('default')->add($product->id, $product->name, 1, $product->price)->associate(Product::class);
+            $this->emit('updateCart');
+            $this->alert('success', 'Product added in your cart successfully.');
+        }
     }
     
     public function addToWishList($id)

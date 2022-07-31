@@ -17,7 +17,7 @@ class CartController extends Controller
      */
     public function  list_cart()
     {
-        $cart = Cart::getcontent();
+        $cart = Cart::content();
         return view('user.basket', compact('cart'));
     }
     public function wishlist()

@@ -57,12 +57,12 @@ class OrderController extends Controller
         $order->lat=0;
         $order->save();
         $cart=[];
-        foreach( Cart::getcontent() as $item){
+        foreach( Cart::content() as $item){
 
             $orderproducts[] = [
                 'order_id' => $order->id ,
                 'product_id' => $item->id,
-                'quantity' => $item['qty']
+                'quantity' => $item['quantity']
 
             ];
 
@@ -116,7 +116,7 @@ class OrderController extends Controller
 
         $cart = [];
 
-        foreach(Cart::getcontent() as $id => $item){
+        foreach(Cart::content() as $id => $item){
 
             $cart [$id] = ['quantity' => $item->quantity];
         }

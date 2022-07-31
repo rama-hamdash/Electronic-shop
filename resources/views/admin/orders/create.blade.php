@@ -59,7 +59,7 @@
 
                 <div class="card mb-3">
                     <div class="card-body">
-                      @foreach (Cart::getcontent() as $item)
+                      @foreach (Cart::content() as $item)
                         
                       <div class="row">
                         <div class="col-sm-3">
