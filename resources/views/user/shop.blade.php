@@ -22,9 +22,12 @@
             </div>
         </div>
     </div>
+    {{-- {{ dd($products) }} --}}
 
     <div class="container mt-5 mb-5">
-        <livewire:shop :model="$model" :product="$product" />
+        @foreach ($products as $product)
+            <livewire:shop :product="$product" />
+        @endforeach
     </div>
 
     <div class="page-navigation">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use Darryldecode\Cart\Facades\Cartfacade as cart;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -11,18 +12,12 @@ class Shop extends Component
 {
     use LivewireAlert;
 
-    public $cart = [];
-    public $total = 0.0;
+    public $product;
 
-    protected $listeners = [
-        'addToBasket' => 'add_to_cart',
-    ];
-    public function mount()
+
+    public function mount($product,)
     {
-        $this->cart = Cart::session(Auth::user()->id)->getcontent();
-        foreach ($this->cart as $i) {
-            $this->total +=  $i->price * $i->quantity;
-        }
+        $this->product = $product;
     }
 
     public function addToBasket($id, $qty, $price)
@@ -40,6 +35,4 @@ class Shop extends Component
     {
         return view('livewire.shop');
     }
-
-
 }

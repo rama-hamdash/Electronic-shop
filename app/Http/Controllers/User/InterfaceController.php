@@ -27,8 +27,8 @@ class InterfaceController extends Controller
         $products = [];
         $m = Modele::all();
         foreach ($m as $i) {
-            # code...
-            $products[] = $i->products[0];
+            if (count($i->products) > 0)
+                $products[] = $i->products[0];
         }
 
         // dd($products);
@@ -60,7 +60,7 @@ class InterfaceController extends Controller
 
     public function myorders()
     {
-        $orders= Order::with('user')->paginate(10);
+        $orders = Order::with('user')->paginate(10);
         return view('user.myorders', compact('orders'));
     }
 
