@@ -1,6 +1,4 @@
-<div class="featured container no-gutter">
 
-    <div class="row posts">
         <div id="1" class="item new col">
             <a href="{{ route('product.interface', [$product->id]) }}">
                 <div class="featured-item" style="max-width: 242px">
@@ -36,5 +34,4 @@
                 </div>
             </a>
         </div>
-    </div>
-</div>
+  

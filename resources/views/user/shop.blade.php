@@ -25,9 +25,14 @@
     {{-- {{ dd($products) }} --}}
 
     <div class="container mt-5 mb-5">
-        @foreach ($products as $product)
-            <livewire:shop :product="$product" />
-        @endforeach
+        <div class="featured container no-gutter">
+
+            <div class="row posts">
+                @foreach ($products as $product)
+                    <livewire:shop :product="$product" />
+                @endforeach
+            </div>
+        </div>
     </div>
 
     <div class="page-navigation">
