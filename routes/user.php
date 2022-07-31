@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[InterfaceController::class,'index'])->name('home');
 Route::get('home',[InterfaceController::class,'index'])->name('users.interface');
 Route::get('shop',[InterfaceController::class,'shop'])->name('shop.interface');
+Route::get('shop/category/{cat}',[InterfaceController::class,'byCategory'])->name('shop.category');
 Route::get('product/{product}',[InterfaceController::class,'product'])->name('product.interface');
 Route::get('contact us',[InterfaceController::class,'contact'])->name('contact');
 Route::get('about us',[InterfaceController::class,'aboute'])->name('aboute');

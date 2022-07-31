@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-heading">
+                    <div class="section-heading my-3">
                         <div class="line-dec"></div>
                         <h1>Featured Items</h1>
                     </div>

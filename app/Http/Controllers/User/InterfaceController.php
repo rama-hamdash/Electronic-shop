@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Modele;
 use App\Models\Order;
 use App\Models\Product;
@@ -19,7 +20,8 @@ class InterfaceController extends Controller
     public function index()
     {
         $products = Product::all();
-        return  view('user.index', compact('products'));
+        $categories = Category::all();
+        return  view('user.index', compact(['products', 'categories']));
     }
 
     public function shop()
@@ -33,6 +35,18 @@ class InterfaceController extends Controller
 
         // dd($products);
         return view('user.shop', compact('products'));
+    }
+
+    public function byCategory(Category $cat)
+    {
+        $products = [];
+        $m = Modele::where('category_id', $cat->id)->get();
+        foreach ($m as $i) {
+            if (count($i->products) > 0)
+                $products[] = $i->products[0];
+        }
+        $categories = Category::all();
+        return view('user.search', compact(['products', 'categories']));
     }
 
     public function product(Product $product)
