@@ -134,7 +134,8 @@
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0 "> Daily Sales </h6>
+              <h6 class="mb-0 "> Daily SalesCompleted Tasks
+              </h6>
               <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
               <hr class="dark horizontal">
               <div class="d-flex ">

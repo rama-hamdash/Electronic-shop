@@ -157,7 +157,7 @@
                     borderRadius: 4,
                     borderSkipped: false,
                     backgroundColor: "rgba(255, 255, 255, .8)",
-                    data: [50, 20, 10, 22, 50, 10, 40],
+                    data: [50, 20, 100, 22, 50, 10, 40],
                     maxBarThickness: 6
                 }, ],
             },

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderRequest;
 use App\Http\Requests\OrderStatusRequest;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -58,6 +59,8 @@ class OrderController extends Controller
         $order->save();
         $cart = [];
         foreach (Cart::content() as $item) {
+            $p=Product::find($item->id);
+            $p->sold -= $item->qty;
 
             $orderproducts[] =
                 [
@@ -66,6 +69,7 @@ class OrderController extends Controller
                     'quantity' => $item->qty,
                     'unit_price' => $item->price
                 ];
+                $p->save();
         }
         // dd($orderproducts);
         $order->products()->attach($orderproducts);
