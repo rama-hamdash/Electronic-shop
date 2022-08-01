@@ -100,25 +100,7 @@
             padding-left: 0px;
         }
 
-        .colors ul li:nth-child(1) {
-            background-color: #6c704d
-        }
-
-        .colors ul li:nth-child(2) {
-            background-color: #96918b
-        }
-
-        .colors ul li:nth-child(3) {
-            background-color: #68778e
-        }
-
-        .colors ul li:nth-child(4) {
-            background-color: #263f55
-        }
-
-        .colors ul li:nth-child(5) {
-            background-color: black
-        }
+    
 
         .right-side {
             position: relative

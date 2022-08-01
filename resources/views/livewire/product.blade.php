@@ -20,7 +20,8 @@
             <div class="col-md-6">
                 <div class="p-3 right-side">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3>{{ $model->name }}</h3> <span wire:click="addToWishList({{$p->id}})" class="heart"><i class='fa fa-heart'></i></span>
+                        <h3>{{ $model->name }}</h3> <span wire:click="addToWishList({{ $p->id }})"
+                            class="heart"><i class='fa fa-heart'></i></span>
                     </div>
                     <div class="mt-2 pr-3 content">
                         <p>{{ $model->description }}</p>
@@ -56,11 +57,9 @@
                     <div class="mt-2"> <span class="fw-bold">Color</span>
                         <div class="colors">
                             <ul id="marker">
-                                <li id="marker-1"></li>
-                                <li id="marker-2"></li>
-                                <li id="marker-3"></li>
-                                <li id="marker-4"></li>
-                                <li id="marker-5"></li>
+                                @foreach ($colors as $c)
+                                    <li id="marker-1 {{ $c->name == $product->color->name ? 'border border-dark' : '' }}" style="background-color:{{$c->color}}"></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

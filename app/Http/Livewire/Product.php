@@ -18,6 +18,7 @@ class Product extends Component
     public $model;
     public $product;
     public $sizes;
+    public $colors;
 
     public function mount($model, $product)
     {
@@ -35,7 +36,7 @@ class Product extends Component
         }
         $this->sizes = array_unique($s);
     }
-
+    // TODO:: make colors 
     public function selectProduct($id)
     {
         $this->product = $this->model->products->where('id', $id)->first();
