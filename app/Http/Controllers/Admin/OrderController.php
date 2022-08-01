@@ -50,7 +50,7 @@ class OrderController extends Controller
 
         $order->num=uniqid();
         $order->address=$request->address;
-        $order->total=Cart::getTotal();
+        $order->total=Cart::total();
         $order->user_id= $user->id;
         $order->status=1;
         $order->long=0;
