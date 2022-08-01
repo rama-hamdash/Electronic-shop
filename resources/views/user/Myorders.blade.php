@@ -31,19 +31,19 @@
          </div>
          
             <table class="table ">
-                <tr>
-                   <th scope="col">SHOW</th>
-                   <th scope="col">PRICE</th>
-                   <th scope="col">NAME</th>
+                <tr>   
                    <th scope="col">NUMBER</th>
+                   <th scope="col">NAME</th>
+                   <th scope="col">PRICE</th>
+                   <th scope="col">SHOW</th>
+         
+                
                 </tr>
                 @foreach($orders as $order)
                 <tr>
                   <th scope="row">{{ $order->id }}</th>
-                  <td>{{  $order->user->first_name }}  {{  $order->user->first_name }}</td>
-                  <td>{{ $order->cost  }}</td>
-                 
-
+                  <td>{{  $order->user->first_name }}  {{  $order->user->last_name }}</td>
+                  <td>{{ $order->total  }}</td>
                    <td><a class="text-info" href="{{route('admin.orders.show',[$order->id])}}"><i class="fas fa-eye"></i></a></td>
                  
                   <td class="text-danger"><i class="fas fa-trash-alt"></i></td>
