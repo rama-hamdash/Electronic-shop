@@ -1,5 +1,26 @@
 {{--  --}}
 
+
+
+
+        <div class="col-8">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger text-white" role="alert">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @endif
+
+
+            @if (session('success'))
+                <div class="alert alert-success text-white" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+        </div>
+
+
 <div>
     <div class="d-flex justify-content-end align-items-center mx-4 mb-4">
         <div>
@@ -8,6 +29,8 @@
         </div>
     </div>
 
+
+    
     <div class="card">
         <div class="row">
             <div class="col-md-8 cart">
@@ -19,6 +42,12 @@
                         <div class="col align-self-center text-right text-muted"></div>
                     </div>
                 </div>
+               
+                
+                
+                <form method="POST" action="{{ route('admin.orders.store') }}">
+                    @csrf
+
                 @foreach ($cart as $item)
                     <div class="row border-top border-bottom">
                         <div class="row main align-items-center">
@@ -60,11 +89,11 @@
                     </select>
 
                     <div class="input-group input-group-outline my-3">
-                        <label class="form-label">ADDRESS</label>
-                        <input type="number" name="address" class="form-control">
+                        <label class="text-muted">ADDRESS</label>
+                        <input type="texterea" name="address" class="text-muted">
                     </div>
 
-                    <button type="button" class="btn btn-dark">CHECK OUT</button>
+                    <button type="submit" class="btn btn-dark">CHECK OUT</button>
                 </form>
 
             </div>
