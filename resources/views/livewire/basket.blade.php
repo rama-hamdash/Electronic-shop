@@ -35,7 +35,7 @@
                                 <a wire:click.prevent="increaseQuantity('{{ $item->rowId }}')">+</a>
                             </div>
                             <div class="col">SYP {{ $item->model->price * $item->qty }} <span class="close"><a
-                                        wire:click.prevent="removeFromCart({{ $item->rowId }})">&#10005;</a></span>
+                                        wire:click="removeFromCart('{{ $item->rowId }}')">&#10005;</a></span>
                             </div>
                         </div>
                     </div>

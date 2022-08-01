@@ -62,7 +62,7 @@ class Basket extends Component
         Cart::remove($id);
         $this->cart = Cart::content();
 
-        $this->emit('removeFromCart', $id);
+        $this->emit('updateCart');
 
         $this->alert('success', 'item removed');
     }
