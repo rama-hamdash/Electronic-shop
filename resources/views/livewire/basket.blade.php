@@ -45,8 +45,7 @@
                
                 
                 
-                <form method="POST" action="{{ route('admin.orders.store') }}">
-                    @csrf
+              
 
                 @foreach ($cart as $item)
                     <div class="row border-top border-bottom">
@@ -77,12 +76,14 @@
                 <div>
                     <h5><b>Summary</b></h5>
                 </div>
+                
                 <hr>
                 <div class="row">
                     <div class="col" style="padding-left:0;">ITEMS </div>
                     <div class="col text-right">SYP {{ $total }}</div>
                 </div>
-                <form>
+                <form method="POST" action="{{ route('admin.orders.store') }}">
+                    @csrf>
                     <p>SHIPPING</p>
                     <select>
                         <option class="text-muted">SHIPPING000</option>
