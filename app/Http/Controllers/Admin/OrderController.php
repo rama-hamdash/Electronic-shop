@@ -43,12 +43,12 @@ class OrderController extends Controller
      */
     public function store(OrderRequest $request)
     {
-        $user = User::findOrfail($request->user_id);
+        $user = User::findOrfail(Auth::user()->id);
 
         $order = new Order();
 
 
-        $order->num=uniqid();
+        // $order->num=uniqid();
         $order->address=$request->address;
         $order->total=Cart::total();
         $order->user_id= $user->id;
@@ -62,14 +62,14 @@ class OrderController extends Controller
             $orderproducts[] = [
                 'order_id' => $order->id ,
                 'product_id' => $item->id,
-                'quantity' => $item['quantity']
+                'quantity' => $item->qty
 
             ];
 
         }
 
         $order->products()->attach($cart);
-        Cart::clear();
+        Cart::destroy();
         return redirect()->route('user.myorders')->with('success','Request added successfully');
     }
 

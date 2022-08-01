@@ -74,16 +74,16 @@
                         <h5><b>Summary</b></h5>
                     </div>
 
-                    <hr>
+                    <hr/>
                     <div class="row">
                         <div class="col" style="padding-left:0;">ITEMS </div>
                         <div class="col text-right">SYP {{ $total }}</div>
                     </div>
                     <form method="POST" action="{{ route('admin.orders.store') }}">
-                        @csrf>
+                        @csrf
                         <p>SHIPPING</p>
-                        <select>
-                            <option class="text-muted">SHIPPING000</option>
+                        <select disabled>
+                            <option  class="text-muted">NO SHIPPING</option>
                         </select>
 
                         <div class="input-group input-group-outline my-3">

@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 // my orders route
-Route::get('myorders',[InterfaceController::class,'myorders'])->name('myorders');
+Route::get('myorders',[InterfaceController::class,'myorders'])->name('user.myorders');
 
 
 Route::get('test', function () {
