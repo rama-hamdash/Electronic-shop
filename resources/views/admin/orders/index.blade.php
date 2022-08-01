@@ -34,7 +34,8 @@
             <input type="text" class="form-control">
           </div>
          </div>
-     
+       
+         <button class="btn btn-primary" type="submit">تعديل حالة الطلب</button>
 
             <table class="table ">
                 <tr>
@@ -42,21 +43,18 @@
                   <th scope="col">الاسم</th>
                   <th scope="col">السعر</th>
                   <th scope="col">الحالة </th>
-                   <th scope="col">عرض</th>
-                  <th scope="col">تعديل</th>
+                  
                 </tr>
                 @foreach($orders as $order)
                 <tr>
                   <th scope="row">{{ $order->id }}</th>
                   <td>{{  $order->user->first_name }}  {{  $order->user->last_name }}</td>
                   <td>{{ $order->total  }}</td>
-                 
-                   <td><a class="text-info" href="{{route('admin.orders.show',[$order->id])}}"><i class="fas fa-eye"></i></a></td>
-                  <td><a class="text-warning" href="{{route('admin.orders.edit',[$order->id])}}"><i class="fas fa-edit"></i></a></td>
-                  <td class="text-danger"><i class="fas fa-trash-alt"></i></td>
+                  <td>{{ $order->status  }}</td>
                 </tr>
               @endforeach
               
+
           </table>
         </div>
         </div>

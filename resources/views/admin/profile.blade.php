@@ -41,8 +41,8 @@
                                 alt="Admin" class="rounded-circle" width="150">
                                 
                             <div class="mt-3">
-                                <h4>علي الملا</h4>
-                                <p class="text-secondary mb-3">موظف إداري</p>
+                                <h4> {{$user->first_name}}  {{$user->last_name}}</h4>
+                                <p class="text-secondary mb-3"></p>
                                <a href="edit.html" class="btn btn-secondary text-white">تغيير كلمة المرور <i
                                   class="bi bi-pencil-square"></i></a> 
                                 <a href="edit.html" class="btn btn-warning text-white">تعديل بياناتي <i
@@ -89,7 +89,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">العنوان</h6>
+                               
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 

@@ -26,6 +26,7 @@ class Product extends Component
         $this->product = $product;
 
         $this->getSizes();
+        $this->getColors();
     }
 
     public function getSizes()
@@ -36,7 +37,16 @@ class Product extends Component
         }
         $this->sizes = array_unique($s);
     }
-    // TODO:: make colors 
+  // TODO:: make colors 
+    public function getColors()
+    {
+        $c = [];
+        foreach ($this->model->products as $p) {
+            $c[] = $p->color;
+        }
+        $this->colors = array_unique($c);
+    }
+  
     public function selectProduct($id)
     {
         $this->product = $this->model->products->where('id', $id)->first();

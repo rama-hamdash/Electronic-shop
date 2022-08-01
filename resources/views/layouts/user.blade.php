@@ -138,10 +138,15 @@
                             <a class="nav-link {{ Request::routeIs('signup') ? 'nav-link-active' : '' }}"
                                 href="{{ route('signup') }}">Signup</a>
                         </li>
+                       
                     @else
                         <li class="nav-item">
                             <a class="nav-link {{ Request::routeIs('logout') ? 'nav-link-active' : '' }}"
                                 href="{{ route('logout') }}">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::routeIs('user.myorders') ? 'nav-link-active' : '' }}"
+                                href="{{ route('user.myorders') }}">My orders</a>
                         </li>
                     @endif
                 </ul>
