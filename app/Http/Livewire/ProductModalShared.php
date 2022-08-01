@@ -7,6 +7,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
+use Illuminate\Support\Facades\Auth;
+
 class ProductModalShared extends Component
 {
     use LivewireAlert;
@@ -36,6 +38,11 @@ class ProductModalShared extends Component
 
     public function addToCart()
     {
+
+        if (!Auth::check() == 'null') {
+        
+            $this->alert('error', 'you have to login first...');
+        } else{
         $duplicates = Cart::instance('default')->search(function ($cartItem, $rowId) {
             return $cartItem->id === $this->productModel->id;
         });
@@ -48,9 +55,14 @@ class ProductModalShared extends Component
             $this->alert('success', 'Product added in your cart successfully.');
         }
     }
+}
 
     public function addToWishList()
     {
+        if (!Auth::check() == 'null') {
+        
+            $this->alert('error', 'you have to login first...');
+        } else{
         $duplicates = Cart::instance('wishlist')->search(function ($cartItem, $rowId) {
             return $cartItem->id === $this->productModel->id;
         });
@@ -62,6 +74,7 @@ class ProductModalShared extends Component
             $this->alert('success', 'Product added in your wishlist cart successfully.');
         }
     }
+}
 
     public function showProductModalAction($id)
     {

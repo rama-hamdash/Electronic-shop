@@ -69,7 +69,7 @@ class Basket extends Component
 
     public function clearAllCart()
     {
-        Cart::clear();
+        Cart::destroy();
         $this->cart = Cart::content();
         $this->alert('success', 'item removed');
     }
