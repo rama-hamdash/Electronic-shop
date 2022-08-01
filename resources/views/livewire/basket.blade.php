@@ -47,7 +47,6 @@
                         <div class="row border-top border-bottom">
                             <div class="row main align-items-center">
                                 <div class="col-2">
-                                    <img class="img-fluid" src="{{ asset('storage/' . $item->model->image_url) }}">
                                 </div>
                                 <div class="col">
                                     <div class="row text-muted">{{ $item->name }}</div>
@@ -77,7 +76,7 @@
                     <hr/>
                     <div class="row">
                         <div class="col" style="padding-left:0;">ITEMS </div>
-                        <div class="col text-right">SYP {{ $total }}</div>
+                        <div class="col text-right">SYP {{ Cart::total() }}</div>
                     </div>
                     <form method="POST" action="{{ route('admin.orders.store') }}">
                         @csrf

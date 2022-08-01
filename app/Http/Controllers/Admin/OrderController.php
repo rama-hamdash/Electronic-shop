@@ -20,9 +20,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
-      $orders= Order::with('user')->paginate(10);
-      return view('admin.orders.index',compact('orders'));
+
+        $orders = Order::with('user')->paginate(10);
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -49,28 +49,29 @@ class OrderController extends Controller
 
 
         // $order->num=uniqid();
-        $order->address=$request->address;
-        $order->total=Cart::total();
-        $order->user_id= $user->id;
-        $order->status=1;
-        $order->long=0;
-        $order->lat=0;
+        $order->address = $request->address;
+        $order->total = Cart::total();
+        $order->user_id = $user->id;
+        $order->status = 2;
+        $order->long = 0;
+        $order->lat = 0;
         $order->save();
-        $cart=[];
-        foreach( Cart::content() as $item){
+        $cart = [];
+        foreach (Cart::content() as $item) {
 
-            $orderproducts[] = [
-                'order_id' => $order->id ,
-                'product_id' => $item->id,
-                'quantity' => $item->qty
-
-            ];
-
+            $orderproducts[] =
+                [
+                    'order_id' => $order->id ,
+                    'product_id' => $item->id,
+                    'quantity' => $item->qty,
+                    'unit_price' => $item->price
+                ];
         }
-
-        $order->products()->attach($cart);
+        // dd($orderproducts);
+        $order->products()->attach($orderproducts);
+        $order->save();
         Cart::destroy();
-        return redirect()->route('user.myorders')->with('success','Request added successfully');
+        return redirect()->route('user.myorders')->with('success', 'Request added successfully');
     }
 
     /**
@@ -81,8 +82,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order= Order::where('id',$id)->firstOrfail();
-        return view('admin.orders.show',compact('order'));
+        $order = Order::where('id', $id)->firstOrfail();
+        return view('admin.orders.show', compact('order'));
     }
 
     /**
@@ -93,8 +94,8 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        $order=Order::findOrfail($id);
-        return view('admin.orders.edit',compact('order'));
+        $order = Order::findOrfail($id);
+        return view('admin.orders.edit', compact('order'));
     }
 
     /**
@@ -116,18 +117,18 @@ class OrderController extends Controller
 
         $cart = [];
 
-        foreach(Cart::content() as $id => $item){
+        foreach (Cart::content() as $id => $item) {
 
-            $cart [$id] = ['quantity' => $item->quantity];
+            $cart[$id] = ['quantity' => $item->quantity];
         }
 
-       
+
 
         $order->products()->sync($cart);
 
         Cart::clear();
 
-        return redirect()->back()->with('success','تم تعديل بيانات الطلب بنجاح');
+        return redirect()->back()->with('success', 'تم تعديل بيانات الطلب بنجاح');
     }
 
     /**
@@ -138,41 +139,42 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        
     }
 
-    public function add_order_items_to_basket(Request $request){
+    public function add_order_items_to_basket(Request $request)
+    {
 
-        $order =Order::findOrfail($request->order_id);
+        $order = Order::findOrfail($request->order_id);
 
         Cart::clear();
 
-        foreach($order->products as $product){
+        foreach ($order->products as $product) {
 
             Cart::add([
                 'id' => $product->id,
-              //  'name' => $product->name,
+                //  'name' => $product->name,
                 'price' => $product->price,
                 'quantity' => $product->quantity,
             ]);
         }
 
-        return redirect()->route('admin.orders.edit',[$order->id])->with('success','يمكنك التعديل على السلة ثم تأكيد التعديل');
-        
+        return redirect()->route('admin.orders.edit', [$order->id])->with('success', 'يمكنك التعديل على السلة ثم تأكيد التعديل');
     }
-    public function edit_status($order_id){
-        $order =Order::findOrfail($order_id);
-        return view('admin.orders.edit_status',compact('order'));
+    public function edit_status($order_id)
+    {
+        $order = Order::findOrfail($order_id);
+        return view('admin.orders.edit_status', compact('order'));
     }
 
-    public function update_status(OrderStatusRequest $request){
+    public function update_status(OrderStatusRequest $request)
+    {
 
-        $order =Order::findOrfail($request->order_id);
+        $order = Order::findOrfail($request->order_id);
 
         $order->status = $request->status;
 
         $order->save();
 
-        return redirect()->back()->with('success','تم تعديل حالة الطلب بنجاح');
+        return redirect()->back()->with('success', 'تم تعديل حالة الطلب بنجاح');
     }
 }

@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Size;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InterfaceController extends Controller
 {
@@ -87,7 +88,7 @@ class InterfaceController extends Controller
 
     public function myorders()
     {
-        $orders = Order::with('user')->paginate(10);
+        $orders = Auth::user()->orders;
         return view('user.myorders', compact('orders'));
     }
 

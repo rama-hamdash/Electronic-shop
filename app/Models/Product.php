@@ -52,7 +52,7 @@ public function size()
     }
     public function order()
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class,'product_orders')->withPivot(['quantity','unit_price']);
     }
     public function model()
     {
