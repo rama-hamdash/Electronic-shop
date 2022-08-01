@@ -18,9 +18,7 @@
   <div class="container-fluid py-4">
     <div class="row justify-content-center">
       
-      <div class="col-2 mb-5">
-        <a href="{{route('admin.orders.create')}}" class="btn btn-primary" type="button">إضافة</a>
-    </div>
+     
 
       <div class="col-12">
         <div class="card my-4">
@@ -28,19 +26,16 @@
         <div class="table-responsive">
 
           <div class="mb-3 p-2 col-3"><div class="input-group input-group-outline mb-2 inline">
-            <label class="form-label">اكتب للبحث</label>
-            <input type="text" class="form-control">
+           
           </div>
          </div>
-     
-
+         
             <table class="table ">
                 <tr>
-                  <th scope="col">الرقم</th>
-                  <th scope="col">الاسم</th>
-                  <th scope="col">السعر</th>
-                   <th scope="col">عرض</th>
-                  <th scope="col">تعديل</th>
+                   <th scope="col">SHOW</th>
+                   <th scope="col">PRICE</th>
+                   <th scope="col">NAME</th>
+                   <th scope="col">NUMBER</th>
                 </tr>
                 @foreach($orders as $order)
                 <tr>
@@ -50,7 +45,7 @@
                  
 
                    <td><a class="text-info" href="{{route('admin.orders.show',[$order->id])}}"><i class="fas fa-eye"></i></a></td>
-                  <td><a class="text-warning" href="{{route('admin.orders.edit',[$order->id])}}"><i class="fas fa-edit"></i></a></td>
+                 
                   <td class="text-danger"><i class="fas fa-trash-alt"></i></td>
                 </tr>
               @endforeach
