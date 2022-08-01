@@ -13,16 +13,19 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                   
+
                 </div>
                 <div class="col-md-6">
                     <div class="right-content">
-                        <div class="container"> @if (session('success'))
-                    <div class="alert alert-info" role="alert">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                            <form id="contact" action="{{route('authenticate')}}" method="post">
+                        <div class="container">
+                            @if (session('errors'))
+                                <div class="alert alert-danger" role="alert">
+                                    @foreach ($errors->all() as $error)
+                                        {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
+                            <form id="contact" action="{{ route('authenticate') }}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -46,7 +49,7 @@
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12">
-                                 
+
                                     </div>
                                 </div>
                             </form>
