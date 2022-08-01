@@ -70,7 +70,7 @@ class OrderController extends Controller
 
         $order->products()->attach($cart);
         Cart::clear();
-        return redirect()->back()->with('success','Request added successfully');
+        return redirect()->route('user.myorders')->with('success','Request added successfully');
     }
 
     /**
