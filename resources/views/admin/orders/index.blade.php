@@ -22,9 +22,7 @@
   <div class="container-fluid py-4">
     <div class="row justify-content-center">
       
-      <div class="col-2 mb-5">
-        <a href="{{route('admin.orders.create')}}" class="btn btn-primary" type="button">إضافة</a>
-    </div>
+     
 
       <div class="col-12">
         <div class="card my-4">
@@ -51,7 +49,7 @@
                 <tr>
                   <th scope="row">{{ $order->id }}</th>
                   <td>{{  $order->user->first_name }}  {{  $order->user->last_name }}</td>
-                  <td>{{ $order->cost  }}</td>
+                  <td>{{ $order->total  }}</td>
                  
                    <td><a class="text-info" href="{{route('admin.orders.show',[$order->id])}}"><i class="fas fa-eye"></i></a></td>
                   <td><a class="text-warning" href="{{route('admin.orders.edit',[$order->id])}}"><i class="fas fa-edit"></i></a></td>
