@@ -34,10 +34,10 @@ class Product extends Model
     protected function isAvailable(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => ($this->quantity - $this->sold) == 0 ? false : true,
+            get: fn ($value) => ($this->quantity - $this->sold+ $this->retrieved) == 0 ? false : true,
         );
     }
-public function size()
+    public function size()
     {
         return $this->belongsTo(Size::class, 'size_id');
     }
@@ -52,7 +52,7 @@ public function size()
     }
     public function order()
     {
-        return $this->belongsToMany(Order::class,'product_orders')->withPivot(['quantity','unit_price']);
+        return $this->belongsToMany(Order::class, 'product_orders')->withPivot(['quantity', 'unit_price']);
     }
     public function model()
     {
