@@ -59,7 +59,7 @@
                                         <td>{{ $order->total }}</td>
                                         {{-- <td>{{ $order->status  }}</td> --}}
                                         <td>
-                                            <div class="form-group w-25">
+                                            <div class="form-group w-50">
                                                 <form action="{{ route('admin.orders.status', $order->id) }}"
                                                     method="post">
                                                     @csrf

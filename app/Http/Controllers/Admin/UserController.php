@@ -16,9 +16,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $users=[];
+        if ($request->search) {
+            $users = User::where('first_name', 'like', "%{$request->get('search')}%")->get();
+            
+            // dd($products);
+        } else
         $users= User::paginate(10);
+
+     
       
         return view('admin.users.index',compact('users'));
     }

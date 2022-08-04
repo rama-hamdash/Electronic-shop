@@ -40,10 +40,14 @@
                         <div class="table-responsive">
 
                             <div class="mb-3 p-2 col-3">
+                                <form>
                                 <div class="input-group input-group-outline mb-2 inline">
                                     <label class="form-label">اكتب للبحث</label>
-                                    <input type="text" class="form-control">
+                                    <input name="search" value="{{Request::get('search')}}" type="text" class="form-control">
+
+                                    
                                 </div>
+                                </form>
                             </div>
 
 
