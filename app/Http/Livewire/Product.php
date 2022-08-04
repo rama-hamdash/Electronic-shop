@@ -77,6 +77,7 @@ class Product extends Component
                 $this->alert('success', 'Product added in your cart successfully.');
             }
         }
+        $this->getColors();
     }
 
     public function addToWishList($id)
@@ -97,5 +98,6 @@ class Product extends Component
                 $this->alert('success', 'Product added in your wishlist cart successfully.');
             }
         }
+        $this->getColors();
     }
 }
