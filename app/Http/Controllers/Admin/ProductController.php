@@ -21,9 +21,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $products=[];
+        if ($request->search) {
+            $models = Modele::where('name', 'like', "%{$request->get('search')}%")->with('products')->get();
+            foreach ($models as $m) {
+
+                $products = $m->products->merge($products);
+            }
+            // dd($products);
+        } else
+            $products = Product::all();
         return view('admin.products.index', compact('products'));
     }
 

@@ -78,8 +78,8 @@
                                 @foreach ($models as $model)
                                     <tr>
                                         <th scope="row">{{ $model->id }}</th>
-                                        <td>{{ $model->model_num }}</td>
                                         <td>{{ $model->name }}</td>
+                                        <td>{{ $model->model_num }}</td>
                                         <td><a class="text-info" href="{{ route('admin.models.show', [$model->id]) }}"><i
                                                     class="fas fa-eye"></i></a></td>
                                         <td> <a class="text-warning" href="{{ route('admin.models.edit', [$model->id]) }}"><i
