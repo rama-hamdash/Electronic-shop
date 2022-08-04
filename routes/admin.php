@@ -91,6 +91,7 @@ Route::resource('orders', OrderController::class)->names([
   'update' => 'admin.orders.update',
   'destroy' => 'admin.orders.destroy'
 ]);
+Route::post('orders/{order}/status', [OrderController::class, 'changedStatus'])->name('admin.orders.status');
 
 //profile route
 Route::get('profile',[ProfileController::class,'index'])->name('profile.admin');

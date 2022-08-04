@@ -21,9 +21,14 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $order_status_array = [
+            '0' => 'incomplete',
+            '1' => 'complete',
+            '2' => 'retrieved',
 
+        ];
         $orders = Order::with('user')->paginate(10);
-        return view('admin.orders.index', compact('orders'));
+        return view('admin.orders.index', compact(['orders', 'order_status_array']));
     }
 
     /**
@@ -59,17 +64,17 @@ class OrderController extends Controller
         $order->save();
         $cart = [];
         foreach (Cart::content() as $item) {
-            $p=Product::find($item->id);
-            $p->sold -= $item->qty;
+            $p = Product::find($item->id);
+            $p->sold += $item->qty;
 
             $orderproducts[] =
                 [
-                    'order_id' => $order->id ,
+                    'order_id' => $order->id,
                     'product_id' => $item->id,
                     'quantity' => $item->qty,
                     'unit_price' => $item->price
                 ];
-                $p->save();
+            $p->save();
         }
         // dd($orderproducts);
         $order->products()->attach($orderproducts);
@@ -144,7 +149,19 @@ class OrderController extends Controller
     public function destroy($id)
     {
     }
-
+    public function changedStatus(Request $request, Order $order)
+    {
+        $order->update(['status' => $request->order_status]);
+        if ($request->order_status == 'retrieved') {
+            foreach ($order->products as $product) {
+                $product->retrieved += $order->products->pivot->quantity;
+                $product->save();
+            }
+        }
+        return back()->with([
+            'success' => 'updated successfully',
+        ]);
+    }
     public function add_order_items_to_basket(Request $request)
     {
 
