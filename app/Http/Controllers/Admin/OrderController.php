@@ -22,9 +22,9 @@ class OrderController extends Controller
     public function index()
     {
         $order_status_array = [
-            '0' => 'incomplete',
-            '1' => 'complete',
-            '2' => 'retrieved',
+            'incomplete' => 'incomplete',
+            'complete' => 'complete',
+            'retreived' => 'retreived',
 
         ];
         $orders = Order::with('user')->paginate(10);
