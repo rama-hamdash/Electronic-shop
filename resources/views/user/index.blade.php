@@ -43,6 +43,10 @@
     <!-- Featred Ends Here -->
     <livewire:category-product />
 
+    <livewire:recommended-product />
+
+
+
     <!-- Subscribe Form Ends Here -->
 @endsection
 @section('styles')
