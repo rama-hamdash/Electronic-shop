@@ -152,9 +152,9 @@ class OrderController extends Controller
     public function changedStatus(Request $request, Order $order)
     {
         $order->update(['status' => $request->order_status]);
-        if ($request->order_status == 'retrieved') {
+        if ($request->order_status == 'retreived') {
             foreach ($order->products as $product) {
-                $product->retrieved += $order->products->pivot->quantity;
+                $product->retreived += $product->pivot->quantity;
                 $product->save();
             }
         }
@@ -191,7 +191,13 @@ class OrderController extends Controller
     {
 
         $order = Order::findOrfail($request->order_id);
-
+        if ($request->status == 'retreived') {
+            dd('nm');
+            foreach ($order->products as $product) {
+                $product->retrieved += $product->pivot->quantity;
+                $product->save();
+            }
+        }
         $order->status = $request->status;
 
         $order->save();
